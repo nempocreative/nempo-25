@@ -56,22 +56,21 @@ const creatorFields = [
   { label: "Wedding Creator", color: "linear-gradient(135deg, #e11d48, #be123c)" },
 ];
 
-const creativeStudioProfileIndexes = [1, 2, 3, 5, 6, 7];
-const artsAndEntertainmentProfileIndexes = [0, 4, 8, 9];
+type TeamProfile = {
+  image: string;
+  name: string;
+  field: string;
+  color: string;
+};
 
-const creativeStudioProfiles = creativeStudioProfileIndexes.map((index) => ({
+const creatorProfiles: TeamProfile[] = creatorFields.map((field, index) => ({
   image: creatorImages[index],
   name: creatorNames[index],
-  field: creatorFields[index],
+  field: field.label,
+  color: field.color,
 }));
 
-const artsAndEntertainmentProfiles = artsAndEntertainmentProfileIndexes.map((index) => ({
-  image: creatorImages[index],
-  name: creatorNames[index],
-  field: creatorFields[index],
-}));
-
-const weddingCreatorProfiles = [
+const weddingCreatorProfiles: TeamProfile[] = [
   {
     image: weddingCreator01,
     name: "Maya",
@@ -98,12 +97,18 @@ const weddingCreatorProfiles = [
   },
 ];
 
+/* Satu daftar tim: wedding creator disisipkan di antara profil kreatif lainnya. */
+const teamProfiles: TeamProfile[] = weddingCreatorProfiles.flatMap((weddingProfile, index) => [
+  weddingProfile,
+  ...creatorProfiles.slice(index * 3, index * 3 + 3),
+]);
+
 export function NempoCreatorTeamCard() {
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const [visibleCount, setVisibleCount] = useState(4);
-  const [maxSlide, setMaxSlide] = useState(creativeStudioProfiles.length - 4);
+  const [maxSlide, setMaxSlide] = useState(teamProfiles.length - 4);
   const [stepWidth, setStepWidth] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
@@ -119,7 +124,7 @@ export function NempoCreatorTeamCard() {
       const gap = Number.parseFloat(window.getComputedStyle(track).columnGap) || 0;
       const count = Math.max(1, Math.floor((viewport.clientWidth + gap) / (cardWidth + gap)));
       setVisibleCount(count);
-      setMaxSlide(Math.max(0, creativeStudioProfiles.length - count));
+      setMaxSlide(Math.max(0, teamProfiles.length - count));
       setStepWidth(cardWidth + gap);
     };
 
@@ -193,145 +198,52 @@ export function NempoCreatorTeamCard() {
         </a>
       </header>
 
-      <section
-        className="nempo-creator-team__wedding-section"
-        aria-labelledby="wedding-content-creator-title"
+      <div
+        className="nempo-creator-team__carousel-row"
+        aria-label="Nempo Creative Team"
+        aria-roledescription="carousel"
       >
-        <header className="nempo-creator-team__header">
-          <div className="nempo-creator-team__intro">
-            <h3
-              className="nempo-creator-team__group-title"
-              id="wedding-content-creator-title"
-            >
-              Wedding Content Creator
-            </h3>
-            <p className="nempo-creator-team__service">Wedding · Event · konten acara</p>
-          </div>
-        </header>
-
-        <div className="nempo-creator-team__wedding-grid">
-          {weddingCreatorProfiles.map((profile) => (
-            <article
-              className="nempo-creator-team__card"
-              key={profile.name}
-              aria-label={`${profile.name}, ${profile.field}, profil contoh AI`}
-            >
-              <div className="nempo-creator-team__portrait">
-                <img
-                  src={profile.image}
-                  alt="Potret contoh AI, bukan anggota tim Nempo"
-                  loading="eager"
-                  draggable={false}
-                />
-                <span
-                  className="nempo-creator-team__role-flag"
-                  style={{ background: profile.color }}
+        <div className="nempo-creator-team__viewport" ref={viewportRef}>
+          <div
+            className="nempo-creator-team__track"
+            ref={trackRef}
+            style={{
+              transform: `translate3d(-${activeSlide * stepWidth}px, 0, 0)`,
+              transition: prefersReducedMotion ? "none" : undefined,
+            }}
+          >
+            {teamProfiles.map((profile, index) => {
+              const isVisible = index >= activeSlide && index < activeSlide + visibleCount;
+              return (
+                <article
+                  className="nempo-creator-team__card"
+                  key={`${profile.name}-${index}`}
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label={`${profile.name}, ${profile.field}, profil contoh AI ${index + 1} dari ${teamProfiles.length}`}
+                  aria-hidden={!isVisible}
                 >
-                  {profile.field}
-                </span>
-              </div>
-              <p className="nempo-creator-team__name">{profile.name}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section
-        className="nempo-creator-team__category"
-        aria-labelledby="creative-studio-title"
-      >
-        <header className="nempo-creator-team__category-heading">
-          <h3 className="nempo-creator-team__group-title" id="creative-studio-title">
-            Creative Studio
-          </h3>
-          <p className="nempo-creator-team__service">Konten · desain · digital</p>
-        </header>
-
-        <div
-          className="nempo-creator-team__carousel-row"
-          aria-label="Creative Studio"
-          aria-roledescription="carousel"
-        >
-          <div className="nempo-creator-team__viewport" ref={viewportRef}>
-            <div
-              className="nempo-creator-team__track"
-              ref={trackRef}
-              style={{
-                transform: `translate3d(-${activeSlide * stepWidth}px, 0, 0)`,
-                transition: prefersReducedMotion ? "none" : undefined,
-              }}
-            >
-              {creativeStudioProfiles.map((profile, index) => {
-                const isVisible = index >= activeSlide && index < activeSlide + visibleCount;
-                return (
-                  <article
-                    className="nempo-creator-team__card"
-                    key={profile.image}
-                    role="group"
-                    aria-roledescription="slide"
-                    aria-label={`${profile.name}, ${profile.field.label}, profil contoh AI ${index + 1} dari ${creativeStudioProfiles.length}`}
-                    aria-hidden={!isVisible}
-                  >
-                    <div className="nempo-creator-team__portrait">
-                      <img
-                        src={profile.image}
-                        alt="Potret contoh AI, bukan anggota tim Nempo"
-                        loading={index < visibleCount ? "eager" : "lazy"}
-                        draggable={false}
-                      />
-                      <span
-                        className="nempo-creator-team__role-flag"
-                        style={{ background: profile.field.color }}
-                      >
-                        {profile.field.label}
-                      </span>
-                    </div>
-                    <p className="nempo-creator-team__name">{profile.name}</p>
-                  </article>
-                );
-              })}
-            </div>
+                  <div className="nempo-creator-team__portrait">
+                    <img
+                      src={profile.image}
+                      alt="Potret contoh AI, bukan anggota tim Nempo"
+                      loading={index < visibleCount ? "eager" : "lazy"}
+                      draggable={false}
+                    />
+                    <span
+                      className="nempo-creator-team__role-flag"
+                      style={{ background: profile.color }}
+                    >
+                      {profile.field}
+                    </span>
+                  </div>
+                  <p className="nempo-creator-team__name">{profile.name}</p>
+                </article>
+              );
+            })}
           </div>
         </div>
-      </section>
-
-      <section
-        className="nempo-creator-team__category"
-        aria-labelledby="arts-entertainment-title"
-      >
-        <header className="nempo-creator-team__category-heading">
-          <h3 className="nempo-creator-team__group-title" id="arts-entertainment-title">
-            Arts &amp; Entertainment
-          </h3>
-          <p className="nempo-creator-team__service">Creator · event · hiburan</p>
-        </header>
-
-        <div className="nempo-creator-team__wedding-grid">
-          {artsAndEntertainmentProfiles.map((profile) => (
-            <article
-              className="nempo-creator-team__card"
-              key={profile.image}
-              aria-label={`${profile.name}, ${profile.field.label}, profil contoh AI`}
-            >
-              <div className="nempo-creator-team__portrait">
-                <img
-                  src={profile.image}
-                  alt="Potret contoh AI, bukan anggota tim Nempo"
-                  loading="lazy"
-                  draggable={false}
-                />
-                <span
-                  className="nempo-creator-team__role-flag"
-                  style={{ background: profile.field.color }}
-                >
-                  {profile.field.label}
-                </span>
-              </div>
-              <p className="nempo-creator-team__name">{profile.name}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      </div>
     </section>
   );
 }

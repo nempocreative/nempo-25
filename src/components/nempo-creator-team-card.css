@@ -20,33 +20,6 @@
   min-width: 0;
 }
 
-.nempo-creator-team__wedding-section {
-  margin-bottom: 24px;
-}
-
-.nempo-creator-team__wedding-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.nempo-creator-team__category {
-  margin-top: 24px;
-}
-
-.nempo-creator-team__category-heading {
-  margin-bottom: 12px;
-}
-
-.nempo-creator-team__group-title {
-  margin: 0;
-  color: var(--creator-blue);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  line-height: 1.2;
-}
 
 .nempo-creator-team__title {
   margin: 0;
@@ -192,9 +165,6 @@
 }
 
 @media (max-width: 800px) {
-  .nempo-creator-team__wedding-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 
   .nempo-creator-team__card {
     flex-basis: calc((100cqw - 24px) / 3);
@@ -238,17 +208,6 @@
     border-radius: 14px;
   }
 
-  .nempo-creator-team__wedding-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    margin-inline: 0;
-  }
-
-  .nempo-creator-team__wedding-grid .nempo-creator-team__card {
-    flex: none;
-    width: auto;
-  }
 
 
   .nempo-creator-team__portrait {
