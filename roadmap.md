@@ -69,3 +69,4 @@
 - [x] Grid team mobile: 2 card per baris, tidak terpotong
 - [ ] Bilah ikon bawah mobile diganti sesuai menu terbaru (user: "nanti aja")
 
+- [x] Studio konsep wedding: bilah geser (scrollbar) di baris Pelaminan / Kebaya & Beskap / Khusus Gaun & Jas disembunyikan di mobile, tetap bisa digeser
