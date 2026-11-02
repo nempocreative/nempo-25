@@ -156,7 +156,7 @@ export function NempoCreatorTeamCard() {
   return (
     <section
       id="creator-team"
-      aria-label="Wedding Content Creator, Creative Studio, dan Arts & Entertainment Nempo"
+      aria-label="Nempo Creative Team"
       className="nempo-creator-team"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -171,31 +171,42 @@ export function NempoCreatorTeamCard() {
       onTouchEnd={() => setIsPaused(false)}
       onTouchCancel={() => setIsPaused(false)}
     >
+      <header className="nempo-creator-team__header">
+        <div className="nempo-creator-team__intro">
+          <h2 className="nempo-creator-team__title" id="creative-team-title">
+            Nempo Creative Team
+          </h2>
+          <p className="nempo-creator-team__service">
+            Wedding, konten, desain, event — satu tim kreatif
+          </p>
+        </div>
+
+        <a
+          className="nempo-creator-team__contact"
+          href={NEMPO_CONSULT_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Hubungi Nempo melalui Instagram"
+        >
+          <MessageCircle aria-hidden="true" />
+          <span>Tanya tim</span>
+        </a>
+      </header>
+
       <section
         className="nempo-creator-team__wedding-section"
         aria-labelledby="wedding-content-creator-title"
       >
         <header className="nempo-creator-team__header">
           <div className="nempo-creator-team__intro">
-            <h2
-              className="nempo-creator-team__title"
+            <h3
+              className="nempo-creator-team__group-title"
               id="wedding-content-creator-title"
             >
               Wedding Content Creator
-            </h2>
+            </h3>
             <p className="nempo-creator-team__service">Wedding · Event · konten acara</p>
           </div>
-
-          <a
-            className="nempo-creator-team__contact"
-            href={NEMPO_CONSULT_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Hubungi Nempo melalui Instagram"
-          >
-            <MessageCircle aria-hidden="true" />
-            <span>Tanya tim</span>
-          </a>
         </header>
 
         <div className="nempo-creator-team__wedding-grid">
@@ -230,9 +241,9 @@ export function NempoCreatorTeamCard() {
         aria-labelledby="creative-studio-title"
       >
         <header className="nempo-creator-team__category-heading">
-          <h2 className="nempo-creator-team__title" id="creative-studio-title">
+          <h3 className="nempo-creator-team__group-title" id="creative-studio-title">
             Creative Studio
-          </h2>
+          </h3>
           <p className="nempo-creator-team__service">Konten · desain · digital</p>
         </header>
 
@@ -289,9 +300,9 @@ export function NempoCreatorTeamCard() {
         aria-labelledby="arts-entertainment-title"
       >
         <header className="nempo-creator-team__category-heading">
-          <h2 className="nempo-creator-team__title" id="arts-entertainment-title">
+          <h3 className="nempo-creator-team__group-title" id="arts-entertainment-title">
             Arts &amp; Entertainment
-          </h2>
+          </h3>
           <p className="nempo-creator-team__service">Creator · event · hiburan</p>
         </header>
 

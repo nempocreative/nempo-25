@@ -141,7 +141,7 @@ export default function SplashScreen({ onDone }: Props) {
               fontWeight:800, fontSize:13, color:"rgba(255,255,255,0.75)",
               letterSpacing:"0.35em", textTransform:"uppercase", marginTop:4,
               textShadow:"0 0 16px rgba(1,148,243,0.6)",
-            }}>ID</div>
+            }}>ORGANIZER</div>
           </div>
         </div>
 
@@ -153,10 +153,10 @@ export default function SplashScreen({ onDone }: Props) {
           willChange:"transform, opacity",
         }}>
           <p style={{ color:"rgba(255,255,255,0.82)", fontWeight:600, fontSize:14, lineHeight:1.5 }}>
-            Jelajahi pesona Jawa Barat
+            Wedding, event & layanan kreatif
           </p>
           <p style={{ color:"rgba(255,255,255,0.5)", fontWeight:400, fontSize:12, marginTop:2 }}>
-            Temukan Ceritamu
+            Dari konsep sampai hari-H
           </p>
         </div>
       </div>
@@ -210,7 +210,7 @@ export default function SplashScreen({ onDone }: Props) {
             }} />
           </div>
           <p style={{ color:"rgba(255,255,255,0.5)", fontSize:10, fontWeight:500, letterSpacing:"0.07em" }}>
-            Menyiapkan perjalananmu…
+            Menyiapkan acaramu…
           </p>
         </div>
       </div>
