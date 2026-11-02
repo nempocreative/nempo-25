@@ -105,7 +105,7 @@ export default function BusinessSystemPage() {
 
   return (
     <Layout>
-      <div className="bg-brand-paper pb-28 text-foreground">
+      <div className="bg-brand-paper pb-14 text-foreground">
         <style>{serviceKitCss}</style>
 
         <ServiceHero

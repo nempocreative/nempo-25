@@ -765,7 +765,7 @@ export function Layout({ children, hideBottomNav, minimalChrome }: { children: R
       {!minimalChrome && <footer className="relative overflow-hidden text-white" style={{ background: "linear-gradient(145deg, #0172B1 0%, #0194f3 55%, #1BA0E2 100%)" }}>
         <div className="pointer-events-none absolute -right-24 -top-28 h-80 w-80 rounded-full bg-sky-400/10 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-32 left-1/4 h-72 w-72 rounded-full bg-emerald-400/10 blur-3xl" />
-        <div className="nempo-footer-shell max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12">
+        <div className="nempo-footer-shell max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-24 md:pt-12 md:pb-8">
           <div className="grid grid-cols-1 gap-8 mb-8 md:mb-10 md:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] md:items-stretch md:gap-12">
             <div className="md:col-span-1">
               <div className="flex items-center gap-2.5 mb-4">
