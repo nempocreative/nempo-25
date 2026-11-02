@@ -97,7 +97,7 @@ export function PageLoader({ text = "Memuat data…" }: PageLoaderProps) {
             textTransform: "uppercase", letterSpacing: "0.28em",
             margin: "2px 0 0",
           }}>
-            Organizer
+            Layanan Kreatif Garut
           </p>
         </div>
 
