@@ -23,6 +23,7 @@ export interface SosmedPortfolioItem {
   name: string;
   category: SosmedPortfolioCategory;
   image: string;
+  cover: number;
   tones: SosmedTone[];
 }
 
