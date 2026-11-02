@@ -31,8 +31,8 @@ export function SosmedPortfolioGallery() {
         </div>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
           {items.map((item) => (
-            <Button key={item.id} variant="ghost" onClick={() => { setSelected(item); setToneIndex(0); setPostIndex(null); }} aria-label={`Buka ${item.name}`} className="group h-auto min-w-0 flex-col items-stretch gap-0 overflow-hidden whitespace-normal rounded-2xl border-2 border-dashed border-primary-foreground/20 bg-primary-foreground/5 p-2 text-left hover:border-brand-sky/70">
-              <img src={item.image} alt={`Grid ${item.category} ${item.tones[0]?.name}`} width={960} height={1280} loading="lazy" className="aspect-[4/5] w-full rounded-xl object-cover transition-opacity group-hover:opacity-90" />
+            <Button key={item.id} variant="ghost" onClick={() => { setSelected(item); setToneIndex(item.cover); setPostIndex(null); }} aria-label={`Buka ${item.name}`} className="group h-auto min-w-0 flex-col items-stretch gap-0 overflow-hidden whitespace-normal rounded-2xl border-2 border-dashed border-primary-foreground/20 bg-primary-foreground/5 p-2 text-left hover:border-brand-sky/70">
+              <img src={item.image} alt={`Grid ${item.category} ${item.tones[item.cover]?.name}`} width={960} height={1280} loading="lazy" className="aspect-[4/5] w-full rounded-xl object-cover transition-opacity group-hover:opacity-90" />
               <div className="w-full p-1 pt-2 sm:p-2">
                 <div className="flex items-center justify-between gap-2"><span className="text-[10px] uppercase tracking-wider text-brand-sky">{item.category}</span><ArrowUpRight className="text-brand-sky" /></div>
                 <h3 className="mt-1 text-sm font-bold text-primary-foreground">{item.name}</h3>
