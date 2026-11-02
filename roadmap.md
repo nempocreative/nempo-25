@@ -1,4 +1,5 @@
 # Roadmap
+- [ ] Business System: rapikan halaman selaras EO/WO dan tampilkan isi rincian dari file NEMPO_CREATIVE_Business_System_Digital yang diunggah pengguna; periksa harga, pilihan paket, dan tombol di HP/komputer.
 - [x] Event Liaison Officer Service: 3 tarif per orang, durasi, rincian, harga tambahan, dan catatan pengecualian transportasi/konsumsi/akomodasi di halaman EO; 14 tes lulus, kartu dan daftar tambahan diperiksa di HP dan komputer tanpa potongan.
 - [x] Wedding Content Creator: 3 paket (Intimate, Essential, Exclusive), add-on, dan catatan transport sesuai rincian pengguna; 11 tes lulus, harga dan tampilan diperiksa di HP dan komputer.
 - [x] Rapikan halaman Web Development selaras EO/WO; tampilkan 5 paket website dan biaya tambahan sesuai rincian terbaru pengguna; semua pilihan, konsultasi paket, FAQ, serta tampilan HP/komputer diperiksa, 27 tes lulus.
