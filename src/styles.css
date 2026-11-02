@@ -7,41 +7,34 @@
 
 /* Design Creative uses a local editorial palette; other services retain their themes. */
 .design-creative {
-  --background: 0 0% 100%;
-  --foreground: 160 5% 14%;
-  --card: 0 0% 100%;
-  --card-foreground: 160 5% 14%;
-  --muted: 150 5% 96%;
-  --muted-foreground: 160 3% 43%;
-  --border: 150 5% 86%;
-  --primary: 156 22% 25%;
-  --primary-foreground: 0 0% 100%;
-  --primary-border: hsl(156 22% 25%);
-  --ring: 156 22% 25%;
-  --button-outline: hsl(150 5% 80%);
+  --color-background: oklch(0.985 0.002 155);
+  --color-foreground: oklch(0.25 0.012 155);
+  --color-card: oklch(1 0 0);
+  --color-card-foreground: var(--color-foreground);
+  --color-muted: oklch(0.95 0.007 155);
+  --color-muted-foreground: oklch(0.48 0.016 155);
+  --color-border: oklch(0.87 0.008 155);
+  --color-primary: oklch(0.4 0.065 165);
+  --color-primary-foreground: oklch(0.99 0.002 155);
+  --color-secondary: oklch(0.94 0.012 155);
+  --color-secondary-foreground: oklch(0.3 0.04 165);
+  --color-primary-border: var(--color-primary);
+  --color-secondary-border: var(--color-border);
+  --color-ring: var(--color-primary);
+  --button-outline: var(--color-border);
 }
 .design-creative :is(h1, h2, h3, p, a, button) { letter-spacing: 0; }
-.design-creative .creative-cover { background: oklch(0.89 0.001 150); }
 .dark .design-creative {
-  --background: 160 4% 10%;
-  --foreground: 150 5% 94%;
-  --card: 160 4% 13%;
-  --card-foreground: 150 5% 94%;
-  --muted: 160 4% 16%;
-  --muted-foreground: 150 3% 68%;
-  --border: 160 4% 27%;
-  --primary: 150 20% 76%;
-  --primary-foreground: 160 10% 12%;
-  --primary-border: hsl(150 20% 76%);
-  --ring: 150 20% 76%;
-  --button-outline: hsl(160 4% 35%);
-}
-.design-creative .creative-cover-copy {
-  --foreground: 160 5% 14%;
-  --muted-foreground: 160 3% 32%;
-  --primary: 156 22% 25%;
-  --primary-foreground: 0 0% 100%;
-  --primary-border: hsl(156 22% 25%);
+  --color-background: oklch(0.19 0.008 155);
+  --color-foreground: oklch(0.95 0.004 155);
+  --color-card: oklch(0.23 0.009 155);
+  --color-muted: oklch(0.27 0.012 155);
+  --color-muted-foreground: oklch(0.73 0.012 155);
+  --color-border: oklch(0.37 0.014 155);
+  --color-primary: oklch(0.8 0.065 165);
+  --color-primary-foreground: oklch(0.22 0.02 165);
+  --color-secondary: oklch(0.32 0.024 165);
+  --color-secondary-foreground: oklch(0.94 0.009 155);
 }
 
 /* NEMPO 04 — scoped vintage garden palette */
