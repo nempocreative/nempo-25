@@ -7,7 +7,7 @@ import {
   Lightbulb, PenLine, CalendarClock, BarChart3, Megaphone, Image as ImageIcon,
   MessageCircle, Check, Plus, Minus, ArrowRight, Heart, Play,
 } from "lucide-react";
-import { SOSMED_BUNDLES, SOSMED_ITEMS, bundleSaving, rupiah, type SosmedItem } from "@/data/sosmed-packages";
+import { SOSMED_BUNDLES, SOSMED_UMKM_PROMO, bundleSaving, rupiah } from "@/data/sosmed-packages";
 import { SosmedPortfolioGallery } from "@/components/sosmed-portfolio-gallery";
 
 const hand = "font-[family-name:var(--font-wed-hand)]";
@@ -30,15 +30,12 @@ const steps = [
 
 const faqs = [
   { q: "Materi kontennya dari siapa?", a: "Materi dibuat oleh tim Nempo Organizer. Untuk Instagram Feed, caption disiapkan oleh event creator supaya pesannya sesuai." },
-  { q: "Boleh ambil satuan saja, tanpa paket?", a: "Boleh. Semua layanan bisa diambil satuan, misalnya hanya Instagram Story atau TikTok Post." },
-  { q: "Iklan Instagram dihitung bagaimana?", a: "Instagram Ads dihitung per minggu (Rp300.000/minggu) dengan tombol CTA langsung ke detail event." },
+    { q: "Iklan Instagram dihitung bagaimana?", a: "Instagram Ads dihitung per minggu (Rp300.000/minggu) dengan tombol CTA langsung ke detail event." },
   { q: "Mau sekalian tampil di website Nempo?", a: "Pilih All Promotion: semua isi Paket Social Media plus banner dan rekomendasi event di website selama 2 minggu." },
 ];
 
 const marqueeItems = ["Instagram Feed", "Reels", "Story", "Highlight", "Instagram Ads", "TikTok"];
 
-type Filter = "Semua" | SosmedItem["platform"];
-const FILTERS: Filter[] = ["Semua", "Instagram", "TikTok"];
 
 function StickerIcon({ icon: Icon, color, className = "" }: { icon: React.ElementType; color: string; className?: string }) {
   return (
@@ -105,9 +102,7 @@ function PhoneMockup() {
 }
 
 export default function SosmedManagementPage() {
-  const [filter, setFilter] = useState<Filter>("Semua");
   const [open, setOpen] = useState<number | null>(null);
-  const items = filter === "Semua" ? SOSMED_ITEMS : SOSMED_ITEMS.filter((i) => i.platform === filter);
 
   return (
     <Layout>
@@ -140,7 +135,7 @@ export default function SosmedManagementPage() {
                 </a>
               </div>
               <p className="mt-5 text-xs text-primary-foreground/70">
-                Mulai dari <b className="text-primary-foreground">{rupiah(250_000)}</b> per konten
+                Promo UMKM <b className="text-primary-foreground">{rupiah(SOSMED_UMKM_PROMO.price)}</b> per bulan
               </p>
             </div>
             <div className="py-4">
@@ -185,7 +180,27 @@ export default function SosmedManagementPage() {
 
           {/* Bundles */}
           <section id="paket" className="scroll-mt-24 px-6 py-12">
-            <SectionHead eyebrow="Paket Hemat" title="Ambil paket, lebih untung" note="hemat sampai jutaan" />
+            <SectionHead eyebrow="Paket Hemat" title="Ambil paket, lebih untung" note="ada promo khusus UMKM!" />
+            <div className="wed-card-pop relative mb-6 overflow-hidden rounded-3xl bg-sos-pink p-6 text-primary-foreground sm:p-8" style={{ boxShadow: "6px 6px 0 0 var(--color-sos-ink)" }}>
+              <span className="wed-sticker wed-wiggle absolute right-4 top-4 rotate-3 rounded-full bg-sos-ink px-3.5 py-1.5 text-[10px] font-bold tracking-wide">PROMO UMKM</span>
+              <div className="grid gap-6 sm:grid-cols-[1fr_1.2fr] sm:items-center">
+                <div>
+                  <p className={`${hand} text-2xl`}>khusus usaha lokal</p>
+                  <h3 className="text-2xl font-extrabold sm:text-3xl">{SOSMED_UMKM_PROMO.name}</h3>
+                  <p className="mt-1 text-sm text-primary-foreground/85">{SOSMED_UMKM_PROMO.tagline}</p>
+                  <p className="mt-4 text-4xl font-extrabold">{rupiah(SOSMED_UMKM_PROMO.price)}<span className="text-base font-bold text-primary-foreground/80">{SOSMED_UMKM_PROMO.unit}</span></p>
+                  <a href={NEMPO_CONSULT_URL} target="_blank" rel="noopener noreferrer" className="wed-sticker mt-5 inline-flex items-center gap-2 rounded-full bg-sos-ink px-7 py-3 text-sm font-bold">Ambil Promo UMKM <ArrowRight className="h-4 w-4" /></a>
+                </div>
+                <ul className="grid gap-2.5 rounded-2xl bg-primary-foreground/15 p-5">
+                  {SOSMED_UMKM_PROMO.includes.map((it) => (
+                    <li key={it} className="flex items-start gap-2.5 text-sm">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-card"><Check className="h-3 w-3 text-sos-pink" strokeWidth={3} /></span>
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
             <div className="grid gap-5 sm:grid-cols-2">
               {SOSMED_BUNDLES.map((b) => (
                 <div
@@ -224,51 +239,6 @@ export default function SosmedManagementPage() {
                   >
                     Ambil {b.name}
                   </a>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Per item */}
-          <section className="px-6 py-12">
-            <SectionHead eyebrow="Harga Satuan" title="Racik sendiri sesuai kebutuhan" note="mau satu konten juga boleh" />
-            <div className="mb-6 flex justify-center gap-2">
-              {FILTERS.map((f) => (
-                <button
-                  key={f}
-                  type="button"
-                  onClick={() => setFilter(f)}
-                  className={`rounded-full border-2 px-4 py-2 text-xs font-bold transition-colors ${
-                    filter === f ? "border-sos-ink bg-sos-ink text-primary-foreground" : "border-dashed border-border bg-card text-foreground hover:border-sos-pink/50"
-                  }`}
-                >
-                  {f}
-                </button>
-              ))}
-            </div>
-            <div className="grid gap-3 sm:grid-cols-2">
-              {items.map((it) => (
-                <div key={it.id} className="wed-card-pop flex flex-col rounded-3xl border-2 border-dashed border-border bg-card p-5 hover:border-sos-pink/40">
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <span className={`inline-block rounded-full px-2.5 py-0.5 text-[10px] font-bold ${it.platform === "TikTok" ? "bg-sos-ink text-primary-foreground" : "bg-sos-blush text-sos-pink"}`}>
-                        {it.platform}
-                      </span>
-                      <h3 className="mt-2 text-[15px] font-extrabold text-sos-ink">{it.name}</h3>
-                    </div>
-                    <p className="text-right">
-                      <span className="block text-lg font-extrabold text-sos-pink">{rupiah(it.price)}</span>
-                      <span className="text-[11px] text-muted-foreground">{it.unit}</span>
-                    </p>
-                  </div>
-                  <ul className="mt-3 space-y-1.5 border-t-2 border-dashed border-border pt-3">
-                    {it.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-xs text-muted-foreground">
-                        <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-sos-pink" strokeWidth={3} />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               ))}
             </div>

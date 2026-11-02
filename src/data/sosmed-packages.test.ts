@@ -31,3 +31,10 @@ describe("sosmed packages", () => {
     expect(rupiah(1_250_000)).toBe("Rp1.250.000");
   });
 });
+
+import { SOSMED_UMKM_PROMO } from "./sosmed-packages";
+import { test as t2, expect as e2 } from "vitest";
+t2("promo UMKM Rp1.500.000 per bulan", () => {
+  e2(SOSMED_UMKM_PROMO.price).toBe(1_500_000);
+  e2(SOSMED_UMKM_PROMO.unit).toBe("/bulan");
+});
