@@ -27,6 +27,13 @@ import digiNempoHeroImage from "@/assets/d8bb582f2f075b716c1d0d1dc01bb672_178940
 import digitalGrowthBannerImage from "@/assets/nempo-team-banner.jpg";
 import ggsBeautyOpeningImage from "@/assets/event-ggs-beauty-opening.jpg";
 import riuhRonaPosterImage from "@/assets/event-riuh-rona-poster.jpg";
+import secangkirKopiPosterImage from "@/assets/event-secangkir-kopi-poster.jpg";
+import universityCoffeeNightPosterImage from "@/assets/event-university-coffee-night-poster.jpg";
+import lalanaPagiPosterImage from "@/assets/event-lalana-pagi-poster.jpg";
+import ngahijiBoboranSiamPosterImage from "@/assets/event-ngahiji-boboran-siam-poster.jpg";
+import temuTarungPosterImage from "@/assets/event-temu-tarung-poster.jpg";
+import nightOutMaxiPosterImage from "@/assets/event-night-out-maxi-poster.jpg";
+import colorTheBeatPosterImage from "@/assets/event-color-the-beat-poster.jpg";
 import cafePartnershipBannerImage from "@/assets/generated_images/cafe-partnership-banner.jpg";
 
 type HeroBanner = {
@@ -1102,7 +1109,7 @@ export default function Home() {
     {
       id: "secangkir-kopi-biang-2025",
       name: "Secangkir Kopi dengan Alunan Musik Tradisi di Akhir Tahun",
-      image: cafeItems?.find((cafe) => /biang/i.test(String(cafe.name ?? "")))?.image,
+      image: secangkirKopiPosterImage,
       location: "Biang",
       date: "31 Desember 2025",
       badge: "Musik Tradisi",
@@ -1110,7 +1117,7 @@ export default function Home() {
     {
       id: "university-coffee-night-2026",
       name: "University Coffee Night",
-      image: cafeItems?.find((cafe) => /domusa/i.test(String(cafe.name ?? "")))?.image,
+      image: universityCoffeeNightPosterImage,
       location: "Domusa",
       date: "18 Januari 2026",
       badge: "Coffee Night",
@@ -1118,7 +1125,7 @@ export default function Home() {
     {
       id: "lalana-pagi-2026",
       name: "Lalana Pagi",
-      image: cafeItems?.find((cafe) => /kopi jaya/i.test(String(cafe.name ?? "")))?.image,
+      image: lalanaPagiPosterImage,
       location: "Kopi Jaya",
       date: "1 Februari 2026",
       badge: "Acara Pagi",
@@ -1126,7 +1133,7 @@ export default function Home() {
     {
       id: "ngahiji-boboran-siam-2026",
       name: "Ngahiji dina Kebagjaan Boboran Siam",
-      image: wisataItems?.find((place) => /situ bagendit/i.test(String(place.name ?? "")))?.image,
+      image: ngahijiBoboranSiamPosterImage,
       location: "Situ Bagendit",
       date: "23 Maret 2026",
       badge: "Boboran Siam",
@@ -1134,7 +1141,7 @@ export default function Home() {
     {
       id: "temu-tarung-2026",
       name: "Temu Tarung",
-      image: undefined,
+      image: temuTarungPosterImage,
       location: "SOR",
       date: "20–21 Juni 2026",
       badge: "Olahraga",
@@ -1142,7 +1149,7 @@ export default function Home() {
     {
       id: "night-out-maxi-2026",
       name: "Night Out Maxi",
-      image: undefined,
+      image: nightOutMaxiPosterImage,
       location: "Temu Space",
       date: "22 Agustus 2026",
       badge: "Night Out",
@@ -1150,7 +1157,7 @@ export default function Home() {
     {
       id: "color-the-beat-2026",
       name: "Color The Beat",
-      image: undefined,
+      image: colorTheBeatPosterImage,
       location: "Biang",
       date: "29 Agustus 2026",
       badge: "Musik",
