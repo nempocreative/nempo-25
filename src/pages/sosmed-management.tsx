@@ -290,6 +290,7 @@ export default function SosmedManagementPage() {
                 </div>
               ))}
             </div>
+            </div>
           </section>
 
           {/* Steps */}
