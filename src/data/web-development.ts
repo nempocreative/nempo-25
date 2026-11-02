@@ -1,4 +1,54 @@
-// Web Development prices — same values as the Digital Services price list (/digital-services).
+// Website packages supplied by the user; legacy digital services stay separate.
+
+export const WEBSITE_PACKAGES = [
+  {
+    id: "landing-page", name: "Landing Page", price: 1_500_000,
+    detail: "Satu halaman untuk memperkenalkan produk atau jasa.",
+    items: ["Website 1 halaman", "Responsive mobile & desktop", "Informasi produk / jasa", "Tombol WhatsApp", "Google Maps", "Integrasi Instagram"],
+  },
+  {
+    id: "umkm", name: "Website UMKM", price: 2_500_000,
+    detail: "Website usaha dengan informasi lengkap dan mudah ditemukan.",
+    items: ["Maksimal 5 halaman", "Home, About, Produk, Galeri, Kontak", "Responsive", "WhatsApp", "Google Maps", "SEO dasar"],
+  },
+  {
+    id: "company-profile", name: "Company Profile", price: 4_000_000,
+    detail: "Profil perusahaan profesional dengan artikel dan portofolio.",
+    items: ["Maksimal 10 halaman", "Desain profesional", "Profil perusahaan", "Layanan dan portfolio", "Artikel / berita", "Dashboard admin", "SEO dasar"],
+  },
+  {
+    id: "professional", name: "Website Professional", price: 7_500_000,
+    detail: "Tampilan dan fitur yang dirancang mengikuti kebutuhan bisnis.",
+    items: ["Desain UI/UX custom", "Dashboard admin", "Manajemen konten", "Fitur sesuai kebutuhan", "SEO dasar", "Integrasi API sederhana"],
+  },
+  {
+    id: "ecommerce", name: "Website E-Commerce", price: 8_500_000,
+    detail: "Toko online untuk mengelola produk dan pesanan pelanggan.",
+    items: ["Katalog produk", "Keranjang belanja", "Checkout", "Manajemen produk", "Dashboard admin", "Order management", "Integrasi WhatsApp"],
+  },
+] as const;
+
+export const WEBSITE_EXCLUSIONS = {
+  paymentGateway: true,
+  complexSystems: true,
+  customIntegrations: true,
+};
+
+export const WEBSITE_ADDITIONAL_FEES = [
+  { id: "domain", name: "Domain", price: 200_000, unit: "/tahun", startingFrom: true },
+  { id: "hosting", name: "Hosting", price: 500_000, unit: "/tahun", startingFrom: true },
+  { id: "maintenance", name: "Maintenance", price: 300_000, maxPrice: 1_000_000, unit: "/bulan", startingFrom: false },
+  { id: "content", name: "Update konten", price: 250_000, unit: "/bulan", startingFrom: true },
+  { id: "seo", name: "SEO bulanan", price: 750_000, unit: "/bulan", startingFrom: true },
+];
+
+export function websiteConsultUrl(base: string, packageId: string) {
+  const selected = WEBSITE_PACKAGES.find((p) => p.id === packageId);
+  if (!selected) return base;
+  const url = new URL(base);
+  url.searchParams.set("text", `Halo Nempo, saya ingin konsultasi paket ${selected.name} (${webRupiah(selected.price)}).`);
+  return url.toString();
+}
 
 export type WebProject = { id: string; name: string; price: number; billing: string; detail: string; items: string[] };
 
