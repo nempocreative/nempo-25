@@ -1,0 +1,65 @@
+# Roadmap
+- [x] Slide 32: keterangan 15 kartu foto berupa ajakan event (ayo joged bareng, seru-seruan bareng, nyanyi bareng, dll); semua terbaca penuh tanpa terpotong.
+- [x] Slide 32: 15 foto asli Good Story Cafe (SJL01871/83/86/87/93/96/98, 01945/55/59/65/70, 01970_2, 01974/80) dalam tumpukan kartu, 2 detik per foto; foto AI lama dihapus.
+
+
+
+- [x] Tambah slide 32 memakai poster slide 31; pilihan kedua slide dan tampilan ponsel diperiksa, semua gambar tampil.
+- [ ] Rapikan Design Creative: tampilan editorial natural tanpa oranye, layanan dan harga tetap sama; periksa tampilan dan tombol.
+- [x] Perbagus contoh sosmed: 6 kategori, 12 tone, 108 desain AI; galeri, ganti tone, perbesar desain dan tampilan ponsel diperiksa.
+- [x] Rapikan sampul pratinjau 16 tema: memakai sampul undangan asli, proporsi tetap tanpa potongan, kartu sejajar; diperiksa pada lebar 320, 390, 768, 950, 1280, dan 1920, filter dan pembukaan undangan berhasil, 17 tes tema lolos.
+- [x] NEMPO 16: Merah Marun Tanpa Foto dengan cartoon beranimasi, acara, cerita, RSVP, kado dan kalender pratinjau; animasi, kalender, ucapan, kartu tema dan tampilan ponsel/komputer diperiksa, 76 tes lolos.
+- [x] NEMPO 15: Merah Marun Adat Foto, acara, cerita, galeri, RSVP, kado dan kalender pratinjau; galeri, kalender, ucapan, kartu tema dan tampilan ponsel/komputer diperiksa, 75 tes lolos.
+- [x] NEMPO 14: Rose Dusty Tanpa Foto dengan cartoon beranimasi, cerita, acara, RSVP, kado dan kalender pratinjau; animasi, kalender, ucapan, kartu tema dan tampilan ponsel/komputer diperiksa, 74 tes lolos.
+- [x] NEMPO 13: Rose Dusty Adat Foto, acara, cerita, galeri, RSVP, kado dan kalender pratinjau; galeri, kalender, ucapan, kartu tema dan tampilan ponsel/komputer diperiksa, 73 tes lolos.
+- [x] NEMPO 12: Biru Taman Tanpa Foto dengan cartoon pengantin beranimasi, acara, cerita, RSVP, kado dan kalender pratinjau; animasi, kalender, ucapan, kartu tema dan tampilan ponsel/komputer diperiksa.
+- [x] NEMPO 11: Biru Taman Foto, acara, cerita, galeri, RSVP, kado dan kalender pratinjau; galeri, kalender, ucapan, kartu tema dan tampilan ponsel/komputer diperiksa.
+- [x] NEMPO 10: Hitam Mewah Tanpa Foto dengan cartoon pengantin beranimasi, acara, cerita, RSVP, kado dan kalender pratinjau; animasi, kalender, ucapan, kartu tema dan tampilan ponsel/komputer diperiksa.
+- [x] NEMPO 09: Hitam Mewah Foto, acara, cerita, galeri, RSVP, kado dan kalender pratinjau; kalender, galeri, ucapan, kartu tema dan tampilan ponsel/komputer diperiksa.
+- [x] NEMPO 08: Mocca Hangat Tanpa Foto dengan cartoon beranimasi, acara, cerita, RSVP, kado dan kalender pratinjau; animasi, kalender, ucapan dan kartu tema diperiksa.
+- [x] NEMPO 07: Mocca Hangat Foto, desain botanical vintage, acara, cerita, galeri, RSVP, dan kado pratinjau; kartu tema, kalender, ucapan, dan tampilan ponsel/komputer diperiksa.
+- [x] Periksa migration remix terbaru: migration salinan sudah kosong, jurnal tanpa entri, database tidak diubah.
+- [x] NEMPO 06: Navy Elegan Tanpa Foto dengan cartoon pengantin beranimasi, acara, cerita, RSVP, dan kado contoh.
+- [x] NEMPO 06: sampul dua kolom di layar besar, ilustrasi cerita tersendiri, bingkai lengkung mempelai dengan bayangan, dan nama file kalender yang benar.
+- [x] NEMPO 05: Navy Elegan Foto, desain tersendiri, acara, cerita, galeri, RSVP, dan kado pratinjau.
+- [x] NEMPO 04: undangan Peach Klasik Tanpa Foto dengan ilustrasi taman bergerak, acara, cerita, RSVP, dan kado contoh.
+- [x] NEMPO 03: desain Peach Klasik Foto, galeri, acara, cerita, dan RSVP pratinjau.
+- [x] Tambah musik latar dan kartu hadiah rekening/QRIS contoh di NEMPO 01; data pembayaran asli menunggu pengguna.
+- [x] Ganti foto NEMPO 01 dengan pasangan AI berbusana biru dan ivory, termasuk galeri dan kartu tema.
+- [x] Lengkapi NEMPO 01 dengan cerita, kalender, galeri, RSVP dan ucapan contoh, serta animasi halus.
+- [x] Perbagus NEMPO 01 sesuai kategori Spesial Foto dan tema Biru Bunga, memakai foto yang tersedia.
+- [x] Periksa migration kosong setelah remix, tanpa mengubah database.
+- [x] Beri setiap tema undangan kode berurutan NEMPO 01 dan seterusnya, tetap sama saat difilter.
+- [x] Tambah kategori tema undangan sesuai referensi, dengan pilihan foto dan tanpa foto yang bisa dibuka.
+- [x] Hapus unduhan moodboard dari studio wedding, tetap pertahankan konsultasi WhatsApp.
+- [x] Rapikan judul dan pilihan studio wedding supaya ringkas dan sejajar.
+- [x] Ganti ikon makeup dengan ikon sesuai gaya, termasuk Barbie tanpa bintang.
+- [x] Tambah foto ilustrasi contoh untuk kelima gaya makeup pengantin.
+- [x] Tambah jenis makeup Barbie, Bold, Natural, Soft Glam, Korean beserta pilihan konsultasi dan moodboard.
+- [x] Tambah pilihan khusus gaun dengan jas senada dalam empat tone, manekin tanpa wajah, konsultasi dan moodboard.
+- [x] Studio wedding: setiap kebaya didampingi busana pria senada di semua tone, termasuk moodboard.
+- [x] Foto pasangan busana tanpa wajah/orang, hanya pajangan baju lengkap.
+- [x] Manekin busana berleher tertutup dengan knop kuningan seperti referensi, tanpa wajah; ujung baju tidak diubah.
+- [x] Tambah pilihan inspirasi dekor pelaminan, kebaya, tone warna, dan konsep acara di Wedding Organizer, dengan rangkuman konsultasi WhatsApp.
+- [x] Migrate nempo-5 code into this project
+- [x] Migrate nempo-10 code + 18 tables into this project
+- [x] Recreate 18 database tables in Lovable Cloud
+- [x] Migrate nempo-15 code + recreate 18 tables in Lovable Cloud
+- [ ] Import existing data — waiting for backup JSON from old app's /backup page
+- [x] Check remix-of-nempo-5 (older copy of nempo-5; nempo-5 used as source)
+- [ ] Login user & admin panel, Midtrans payments, SMTP email (carried over from old roadmap)
+- [x] Tambah event portofolio: Night Out Maxi (Temu Space), Color The Beat (Biang), Riuh Rona (Maru), Opening GGS (GGS Beauty)
+- [ ] Foto acara untuk kartu portofolio — menunggu foto dari pengguna
+- [x] Mitra Kami: tambah GGS Beauty
+- [x] Footer & teks "tentang": ubah dari nada wisata ke layanan kreatif/organizer
+- [x] Testimoni EO: 14 orang, nama + bagian saja, tanpa nama perusahaan
+- [x] Bersihkan migration Drizzle yang tersalin dari remix, set migration kosong baru (tabel di database tetap ada)
+- [x] Studio wedding: pilih tone warna langsung mengubah warna foto dekor pelaminan dan kebaya
+- [x] Studio wedding: foto dekor & kebaya versi asli per tone (4 tone × 4 dekor × 3 kebaya, tanpa tint CSS)
+- [x] Studio wedding: tambah pilihan tone warna, dekor, dan kebaya
+- [x] Studio wedding: transisi hover, penanda dipilih, dan ringkasan yang muncul dengan animasi
+- [x] Studio wedding: mode bandingkan — empat kombinasi tone + dekor + kebaya berdampingan
+- [x] Studio wedding: foto tampil penuh sesuai aslinya, tidak terpotong
+- [x] NEMPO 02: sampul berbingkai di layar besar, bagian cerita, rundown dua kolom, dan navigasi baru
+- [x] NEMPO 03: undangan Peach Klasik (Premium Vintage Foto) — sampul foto, mempelai, acara, cerita, galeri+lightbox, RSVP, kado, navigasi bawah
+- [x] NEMPO 04: tema tanpa foto pakai animasi cartoon pengantin (bagian mempelai, cerita, dan kartu tema)
