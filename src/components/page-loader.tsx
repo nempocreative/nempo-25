@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const TIPS = [
-  "Nempo Garut Organizer — tim kreatif di balik acara seru di Garut 🎉",
+  "Nempo Organizer — tim kreatif di balik acara seru di Garut 🎉",
   "Dari konsep sampai hari-H, semua kami yang urus 🎪",
   "Wedding, gathering, sampai launching produk — kami siap 💍",
   "Konten sosmedmu juga bisa kami garap biar makin rame 📱",
@@ -90,7 +90,7 @@ export function PageLoader({ text = "Memuat data…" }: PageLoaderProps) {
             fontSize: 20, fontWeight: 900, color: "#111827",
             margin: 0, letterSpacing: "-0.02em", lineHeight: 1.15,
           }}>
-            Nempo <span style={{ color: "#0194f3" }}>Garut</span>
+            Nempo <span style={{ color: "#0194f3" }}>Organizer</span>
           </p>
           <p style={{
             fontSize: 10, fontWeight: 800, color: "#0194f3",
