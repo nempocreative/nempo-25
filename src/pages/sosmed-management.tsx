@@ -5,7 +5,7 @@ import { Link } from "@/lib/wouter";
 import { NEMPO_CONSULT_URL } from "@/lib/contact";
 import {
   Lightbulb, PenLine, CalendarClock, BarChart3, Megaphone, Image as ImageIcon,
-  MessageCircle, Check, ChevronDown, ArrowRight, Heart, Play,
+  MessageCircle, Check, Plus, Minus, ArrowRight, Heart, Play,
 } from "lucide-react";
 import { SOSMED_BUNDLES, SOSMED_ITEMS, bundleSaving, rupiah, type SosmedItem } from "@/data/sosmed-packages";
 import { SosmedPortfolioGallery } from "@/components/sosmed-portfolio-gallery";
@@ -106,14 +106,14 @@ function PhoneMockup() {
 
 export default function SosmedManagementPage() {
   const [filter, setFilter] = useState<Filter>("Semua");
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(null);
   const items = filter === "Semua" ? SOSMED_ITEMS : SOSMED_ITEMS.filter((i) => i.platform === filter);
 
   return (
     <Layout>
       <div className="bg-background pb-12">
         {/* Hero */}
-        <section className="relative overflow-hidden bg-sos-ink px-5 pb-20 pt-12 text-primary-foreground">
+        <section className="relative overflow-hidden bg-sos-ink px-6 pb-20 pt-14 sm:pt-20 text-primary-foreground">
           <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-sos-pink/40 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-20 -left-10 h-48 w-48 rounded-full bg-sos-lilac/40 blur-3xl" />
           <Burst className="wed-float pointer-events-none absolute right-[3%] top-[6%] h-8 w-8 text-sos-lilac/70" />
@@ -167,13 +167,13 @@ export default function SosmedManagementPage() {
 
         <div className="mx-auto max-w-5xl">
           {/* Services */}
-          <section className="px-4 pt-12">
+          <section className="px-6 py-12">
             <SectionHead eyebrow="Yang kami kerjakan" title="Dari ide sampai tayang" note="kamu fokus jualan aja" />
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
               {services.map((s) => (
-                <div key={s.title} className="wed-card-pop rounded-3xl border-2 border-dashed border-border bg-card p-4 hover:border-sos-pink/40">
+                <div key={s.title} className="wed-card-pop flex h-full flex-col items-center rounded-3xl border-2 border-dashed border-border bg-card p-4 text-center hover:border-sos-pink/40 sm:p-5">
                   <StickerIcon icon={s.icon} color={s.color} className="mb-3.5" />
-                  <h3 className="text-[13px] font-bold leading-snug text-foreground">{s.title}</h3>
+                  <h3 className="text-[13px] font-bold leading-snug text-sos-ink sm:text-sm">{s.title}</h3>
                   <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">{s.desc}</p>
                 </div>
               ))}
@@ -184,7 +184,7 @@ export default function SosmedManagementPage() {
           <SosmedPortfolioGallery />
 
           {/* Bundles */}
-          <section id="paket" className="scroll-mt-20 px-4 pt-14">
+          <section id="paket" className="scroll-mt-24 px-6 py-12">
             <SectionHead eyebrow="Paket Hemat" title="Ambil paket, lebih untung" note="hemat sampai jutaan" />
             <div className="grid gap-5 sm:grid-cols-2">
               {SOSMED_BUNDLES.map((b) => (
@@ -230,9 +230,9 @@ export default function SosmedManagementPage() {
           </section>
 
           {/* Per item */}
-          <section className="px-4 pt-14">
+          <section className="px-6 py-12">
             <SectionHead eyebrow="Harga Satuan" title="Racik sendiri sesuai kebutuhan" note="mau satu konten juga boleh" />
-            <div className="mb-5 flex gap-2">
+            <div className="mb-6 flex justify-center gap-2">
               {FILTERS.map((f) => (
                 <button
                   key={f}
@@ -275,11 +275,11 @@ export default function SosmedManagementPage() {
           </section>
 
           {/* Steps */}
-          <section className="mx-4 mt-14 rounded-3xl bg-sos-blush px-5 py-10">
+          <section className="mx-6 my-4 rounded-3xl bg-sos-blush px-5 py-10 sm:px-8">
             <SectionHead eyebrow="Cara Kerja" title="4 langkah, langsung jalan" note="gak pake ribet" />
-            <ol className="grid gap-3 sm:grid-cols-2">
+            <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {steps.map((s, i) => (
-                <li key={s.title} className="flex gap-4 rounded-3xl bg-card p-4">
+                <li key={s.title} className="flex gap-4 rounded-3xl bg-card p-4 lg:flex-col lg:items-center lg:text-center">
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border-[2.5px] border-sos-ink bg-sos-pink text-base font-extrabold text-primary-foreground" style={{ boxShadow: "3px 3px 0 0 var(--color-sos-ink)" }}>
                     {i + 1}
                   </span>
@@ -293,31 +293,31 @@ export default function SosmedManagementPage() {
           </section>
 
           {/* FAQ */}
-          <section className="px-4 pt-14">
-            <SectionHead eyebrow="FAQ" title="Pertanyaan umum" note="biar gak penasaran" />
+          <section className="px-6 py-12">
+            <SectionHead eyebrow="Tanya Jawab" title="Pertanyaan umum" note="biar gak penasaran" />
             <div className="space-y-3">
               {faqs.map((f, i) => (
                 <div key={f.q} className={`rounded-2xl border-2 bg-card transition-colors ${open === i ? "border-sos-pink/50" : "border-dashed border-border"}`}>
-                  <button type="button" onClick={() => setOpen(open === i ? null : i)} className="flex w-full items-center justify-between gap-3 p-4 text-left text-[13px] font-semibold text-sos-ink">
+                  <button type="button" onClick={() => setOpen(open === i ? null : i)} aria-expanded={open === i} className="flex w-full items-center justify-between gap-3 px-5 py-4 text-left text-sm font-semibold text-sos-ink">
                     {f.q}
-                    <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${open === i ? "bg-sos-pink text-primary-foreground" : "bg-sos-blush text-sos-pink"}`}>
-                      <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open === i ? "rotate-180" : ""}`} />
+                    <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full ${open === i ? "bg-sos-pink text-primary-foreground" : "bg-sos-blush text-sos-pink"}`}>
+                      {open === i ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
                     </span>
                   </button>
-                  {open === i && <p className="px-4 pb-4 text-xs leading-relaxed text-muted-foreground">{f.a}</p>}
+                  {open === i && <p className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground">{f.a}</p>}
                 </div>
               ))}
             </div>
           </section>
 
           {/* CTA */}
-          <section className="px-4 pt-14">
-            <div className="relative overflow-hidden rounded-3xl bg-sos-pink p-7 text-center text-primary-foreground" style={{ boxShadow: "6px 6px 0 0 var(--color-sos-ink)" }}>
+          <section className="px-6 pt-4">
+            <div className="relative overflow-hidden rounded-3xl bg-sos-pink px-6 py-12 text-center text-primary-foreground" style={{ boxShadow: "6px 6px 0 0 var(--color-sos-ink)" }}>
               <Burst className="wed-float pointer-events-none absolute left-[8%] top-8 h-7 w-7 text-primary-foreground/50" />
               <Squiggle className="wed-wiggle pointer-events-none absolute right-[10%] bottom-8 h-5 w-12 text-primary-foreground/40" />
               <MessageCircle className="relative mx-auto h-10 w-10" strokeWidth={2.2} />
               <p className={`${hand} relative mt-3 text-2xl`}>posting rutin itu capek, serahin aja</p>
-              <h2 className="relative mt-1 text-2xl font-extrabold leading-snug">Siap bikin sosmed kamu hidup?</h2>
+              <h2 className="relative mt-1 text-3xl font-extrabold leading-snug sm:text-4xl">Siap bikin sosmed kamu hidup?</h2>
               <p className="relative mx-auto mt-2 max-w-sm text-sm text-primary-foreground/85">Konsultasi gratis lewat WhatsApp — kami bantu pilih paket yang paling pas.</p>
               <div className="relative mt-6 flex flex-wrap justify-center gap-3">
                 <a href={NEMPO_CONSULT_URL} target="_blank" rel="noopener noreferrer" className="wed-sticker inline-flex items-center gap-2 rounded-full bg-sos-ink px-7 py-3.5 text-sm font-bold text-primary-foreground">
@@ -337,10 +337,10 @@ export default function SosmedManagementPage() {
 
 function SectionHead({ eyebrow, title, note }: { eyebrow: string; title: string; note?: string }) {
   return (
-    <div className="mb-6">
-      <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-sos-pink">{eyebrow}</p>
-      <h2 className="mt-1 text-[22px] font-extrabold leading-tight text-sos-ink">{title}</h2>
-      {note && <p className={`${hand} mt-0.5 text-xl text-sos-lilac`}>{note}</p>}
+    <div className="mb-7 text-center">
+      <p className="text-xs font-bold uppercase tracking-[0.2em] text-sos-pink">{eyebrow}</p>
+      <h2 className="mt-2 text-[26px] font-extrabold leading-tight text-sos-ink sm:text-4xl">{title}</h2>
+      {note && <p className={`${hand} mt-1 text-xl text-sos-lilac`}>{note}</p>}
     </div>
   );
 }
