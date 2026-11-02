@@ -1,5 +1,5 @@
 # Roadmap
-- [ ] Rapikan halaman Web Development selaras EO/WO; tampilkan 5 paket website dan biaya tambahan sesuai rincian terbaru pengguna, periksa harga dan pilihan paket.
+- [x] Rapikan halaman Web Development selaras EO/WO; tampilkan 5 paket website dan biaya tambahan sesuai rincian terbaru pengguna; semua pilihan, konsultasi paket, FAQ, serta tampilan HP/komputer diperiksa, 27 tes lulus.
 - [x] Slide 32: keterangan 15 kartu foto berupa ajakan event (ayo joged bareng, seru-seruan bareng, nyanyi bareng, dll); semua terbaca penuh tanpa terpotong.
 - [x] Slide 32: 15 foto asli Good Story Cafe (SJL01871/83/86/87/93/96/98, 01945/55/59/65/70, 01970_2, 01974/80) dalam tumpukan kartu, 2 detik per foto; foto AI lama dihapus.
 
