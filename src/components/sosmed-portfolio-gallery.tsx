@@ -14,29 +14,33 @@ export function SosmedPortfolioGallery() {
 
   return (
     <section className="px-4 pt-14">
-      <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-brand">Portofolio</p>
-          <h2 className="mt-1 text-[22px] font-extrabold leading-tight text-brand-navy">Satu tone, satu cerita brand.</h2>
+      <div className="relative isolate overflow-hidden rounded-3xl bg-brand-navy px-4 py-8 sm:px-8 sm:py-10">
+        <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary-foreground/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-20 -left-10 h-48 w-48 rounded-full bg-primary-foreground/10 blur-3xl" />
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-brand-sky">Portofolio</p>
+            <h2 className="mt-1 text-[22px] font-extrabold leading-tight text-primary-foreground">Satu tone, satu cerita brand.</h2>
+          </div>
+          <p className="text-xs text-primary-foreground/60">Konsep visual · Ilustrasi AI</p>
         </div>
-        <p className="text-xs text-muted-foreground">Konsep visual · Ilustrasi AI</p>
-      </div>
-      <div className="mb-6 flex flex-wrap gap-2" aria-label="Kategori portofolio">
-        {(["Semua", ...SOSMED_PORTFOLIO_CATEGORIES] as const).map((category) => (
-          <Button key={category} variant="outline" size="sm" aria-pressed={filter === category} onClick={() => setFilter(category)} className={filter === category ? "border-brand-navy bg-brand-navy text-primary-foreground" : "bg-card text-foreground"}>{category}</Button>
-        ))}
-      </div>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-        {items.map((item) => (
-          <Button key={item.id} variant="ghost" onClick={() => { setSelected(item); setToneIndex(0); setPostIndex(null); }} aria-label={`Buka ${item.name}`} className="group h-auto min-w-0 flex-col items-stretch gap-0 overflow-hidden whitespace-normal rounded-lg border border-border bg-card p-0 text-left hover:border-brand">
-            <img src={item.image} alt={`Grid ${item.category} ${item.tones[0]?.name}`} width={960} height={1280} loading="lazy" className="aspect-[3/4] w-full object-cover transition-opacity group-hover:opacity-90" />
-            <div className="w-full p-3 sm:p-4">
-              <div className="flex items-center justify-between gap-2"><span className="text-[10px] uppercase tracking-wider text-muted-foreground">{item.category}</span><ArrowUpRight className="text-brand" /></div>
-              <h3 className="mt-1 text-sm font-bold text-brand-navy">{item.name}</h3>
-              <p className="mt-1 text-[11px] font-normal text-muted-foreground">2 tone · 18 desain</p>
-            </div>
-          </Button>
-        ))}
+        <div className="mb-6 flex flex-wrap gap-2" aria-label="Kategori portofolio">
+          {(["Semua", ...SOSMED_PORTFOLIO_CATEGORIES] as const).map((category) => (
+            <Button key={category} variant="outline" size="sm" aria-pressed={filter === category} onClick={() => setFilter(category)} className={filter === category ? "border-brand-sky bg-brand-sky text-brand-navy" : "border-primary-foreground/25 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground"}>{category}</Button>
+          ))}
+        </div>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+          {items.map((item) => (
+            <Button key={item.id} variant="ghost" onClick={() => { setSelected(item); setToneIndex(item.cover); setPostIndex(null); }} aria-label={`Buka ${item.name}`} className="group h-auto min-w-0 flex-col items-stretch gap-0 overflow-hidden whitespace-normal rounded-2xl border-2 border-dashed border-primary-foreground/20 bg-primary-foreground/5 p-2 text-left hover:border-brand-sky/70">
+              <img src={item.image} alt={`Grid ${item.category} ${item.tones[item.cover]?.name}`} width={960} height={1280} loading="lazy" className="aspect-[4/5] w-full rounded-xl object-cover transition-opacity group-hover:opacity-90" />
+              <div className="w-full p-1 pt-2 sm:p-2">
+                <div className="flex items-center justify-between gap-2"><span className="text-[10px] uppercase tracking-wider text-brand-sky">{item.category}</span><ArrowUpRight className="text-brand-sky" /></div>
+                <h3 className="mt-1 text-sm font-bold text-primary-foreground">{item.name}</h3>
+                <p className="mt-1 text-[11px] font-normal text-primary-foreground/60">2 tone · 18 desain</p>
+              </div>
+            </Button>
+          ))}
+        </div>
       </div>
       <Dialog open={selected !== null} onOpenChange={(isOpen) => { if (!isOpen) { setSelected(null); setPostIndex(null); } }}>
         <DialogContent className="flex max-h-[90dvh] w-[calc(100%-1.5rem)] max-w-3xl flex-col gap-0 overflow-hidden rounded-lg p-0">
