@@ -7,7 +7,7 @@ import {
   Lightbulb, PenLine, CalendarClock, BarChart3, Megaphone, Image as ImageIcon,
   MessageCircle, Check, Plus, Minus, ArrowRight, Heart, Play,
 } from "lucide-react";
-import { SOSMED_ADDONS, SOSMED_BUNDLES, SOSMED_MONTHLY_PACKAGES, bundleSaving, rupiah } from "@/data/sosmed-packages";
+import { SOSMED_ADDONS, SOSMED_BUNDLES, SOSMED_MONTHLY_PACKAGES, SOSMED_UMKM_PROMO, bundleSaving, rupiah } from "@/data/sosmed-packages";
 import { SosmedPortfolioGallery } from "@/components/sosmed-portfolio-gallery";
 
 const hand = "font-[family-name:var(--font-wed-hand)]";
