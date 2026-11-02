@@ -256,8 +256,8 @@ export function NempoCreatorTeamCard() {
                   <div className="nempo-creator-team__portrait">
                     <img
                       src={profile.image}
-                      alt="Potret contoh AI, bukan anggota tim Nempo"
-                      loading={isClone ? "lazy" : "eager"}
+                      alt={`Anggota tim Nempo — ${profile.field}`}
+                      loading="eager"
                       draggable={false}
                     />
                     <span
