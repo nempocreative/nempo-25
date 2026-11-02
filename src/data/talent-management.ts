@@ -2,6 +2,8 @@
 // From Kenalan Nempo ("Creator & talent: konten, foto, video, panggung") and the wedding adat performers.
 // Talent fees are quoted per event; no fixed prices are published.
 
+import { NEMPO_WA_URL } from "@/lib/contact";
+
 export type TalentCategory = { id: string; name: string; desc: string; examples: string[] };
 
 export const TALENT_CATEGORIES: TalentCategory[] = [
@@ -33,6 +35,11 @@ export function buildTalentRequestMessage(r: TalentRequest): string {
   ];
   if (r.note.trim()) lines.push(`Catatan: ${r.note.trim()}`);
   return lines.join("\n");
+}
+
+/** Opens the Nempo WhatsApp chat with the request already typed in. */
+export function buildTalentRequestUrl(r: TalentRequest): string {
+  return `${NEMPO_WA_URL}?text=${encodeURIComponent(buildTalentRequestMessage(r))}`;
 }
 
 export const canSendTalentRequest = (r: TalentRequest) => Boolean(r.eventType) && r.talentIds.length > 0;

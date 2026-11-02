@@ -1,4 +1,6 @@
 # Roadmap
+- [x] Business System: katalog resmi dipasang (7 sistem operasional, 8 sistem manajemen, 10 sistem industri, custom, 3 paket bundling, maintenance, ketentuan, FAQ, CTA WhatsApp); 43 tes lulus, tab, harga, dan tautan WhatsApp diperiksa di HP dan komputer.
+- [x] Halaman talent dirapikan: kartu orang dihapus jadi penjelasan daftar, form line-up diringkas dan tombolnya membuka WhatsApp dengan pesan terisi otomatis; 4 tes lulus, diperiksa di HP dan komputer.
 - [x] Event Liaison Officer Service: 3 tarif per orang, durasi, rincian, harga tambahan, dan catatan pengecualian transportasi/konsumsi/akomodasi di halaman EO; 14 tes lulus, kartu dan daftar tambahan diperiksa di HP dan komputer tanpa potongan.
 - [x] Wedding Content Creator: 3 paket (Intimate, Essential, Exclusive), add-on, dan catatan transport sesuai rincian pengguna; 11 tes lulus, harga dan tampilan diperiksa di HP dan komputer.
 - [x] Rapikan halaman Web Development selaras EO/WO; tampilkan 5 paket website dan biaya tambahan sesuai rincian terbaru pengguna; semua pilihan, konsultasi paket, FAQ, serta tampilan HP/komputer diperiksa, 27 tes lulus.
