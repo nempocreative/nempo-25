@@ -224,24 +224,24 @@ export default function WeddingOrganizerPage() {
         <section className="mx-auto max-w-5xl px-6 py-12">
           <Head eyebrow="WO + Adat Sunda" title="Contoh total kombinasi" note="tinggal pilih kombinasinya" />
           <p className="mb-6 text-sm text-wed-ink/70">Paket WO digabungkan dengan tarif khusus vendor adat.</p>
-          <div className="wed-sticker overflow-x-auto rounded-3xl border-2 border-wed-rose/25 bg-card">
-            <table className="w-full min-w-[530px] text-left text-sm">
+          <div className="wed-sticker overflow-hidden rounded-3xl border-2 border-wed-rose/25 bg-card">
+            <table className="w-full table-fixed text-left text-xs sm:text-sm">
               <caption className="sr-only">Simulasi biaya paket WO dan adat Sunda</caption>
               <thead className="bg-wed-rose text-primary-foreground">
                 <tr>
-                  <th className="p-4 font-semibold">Paket WO</th>
-                  <th className="p-4 font-semibold">Harga WO</th>
-                  <th className="p-4 font-semibold">Dengan live</th>
-                  <th className="p-4 font-semibold">Tanpa live</th>
+                  <th className="p-2 font-semibold sm:p-4">Paket WO</th>
+                  <th className="p-2 font-semibold sm:p-4">Harga WO</th>
+                  <th className="p-2 font-semibold sm:p-4">Dengan live</th>
+                  <th className="p-2 font-semibold sm:p-4">Tanpa live</th>
                 </tr>
               </thead>
               <tbody>
                 {weddingPackages.map(p => (
                   <tr key={p.name} className="border-t border-dashed border-wed-ink/15">
-                    <th scope="row" className="p-4 font-semibold">{p.name}</th>
-                    <td className="p-4">{weddingRupiah(p.price)}</td>
+                    <th scope="row" className="p-2 font-semibold sm:p-4">{p.name}</th>
+                    <td className="p-2 sm:p-4">{weddingRupiah(p.price)}</td>
                     {weddingAdatOptions.map(a => (
-                      <td key={a.name} className={`${serif} p-4 text-base font-bold text-wed-rose`}>{weddingRupiah(weddingTotal(p.price, a.special))}</td>
+                      <td key={a.name} className={`${serif} p-2 text-sm font-bold text-wed-rose sm:p-4 sm:text-base`}>{weddingRupiah(weddingTotal(p.price, a.special))}</td>
                     ))}
                   </tr>
                 ))}
