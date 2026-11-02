@@ -1,6 +1,6 @@
 # Roadmap
-- [ ] Event Liaison Officer Service: 3 tarifs per person, duration, inclusions, additional fees and transport/meals/accommodation exclusions on EO page; verify.
-- [ ] Wedding Content Creator: pasang 3 paket (Intimate, Essential, Exclusive), add-on, dan catatan transport sesuai rincian pengguna; periksa harga dan tampilan.
+- [x] Event Liaison Officer Service: 3 tarif per orang, durasi, rincian, harga tambahan, dan catatan pengecualian transportasi/konsumsi/akomodasi di halaman EO; 14 tes lulus, kartu dan daftar tambahan diperiksa di HP dan komputer tanpa potongan.
+- [x] Wedding Content Creator: 3 paket (Intimate, Essential, Exclusive), add-on, dan catatan transport sesuai rincian pengguna; 11 tes lulus, harga dan tampilan diperiksa di HP dan komputer.
 - [x] Rapikan halaman Web Development selaras EO/WO; tampilkan 5 paket website dan biaya tambahan sesuai rincian terbaru pengguna; semua pilihan, konsultasi paket, FAQ, serta tampilan HP/komputer diperiksa, 27 tes lulus.
 - [x] Slide 32: keterangan 15 kartu foto berupa ajakan event (ayo joged bareng, seru-seruan bareng, nyanyi bareng, dll); semua terbaca penuh tanpa terpotong.
 - [x] Slide 32: 15 foto asli Good Story Cafe (SJL01871/83/86/87/93/96/98, 01945/55/59/65/70, 01970_2, 01974/80) dalam tumpukan kartu, 2 detik per foto; foto AI lama dihapus.

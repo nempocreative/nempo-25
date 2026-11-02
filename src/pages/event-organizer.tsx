@@ -10,6 +10,7 @@ import {
   Check, MapPin, ArrowRight, Plus, Minus, Users,
 } from "lucide-react";
 import { eoTestimonials as testimonials } from "@/data/eo-testimonials";
+import { LO_ADDONS, LO_EXCLUSION_NOTE, LO_TARIFFS, loRupiah } from "@/data/liaison-officer";
 
 const hand = "font-[family-name:var(--font-wed-hand)]";
 
@@ -350,7 +351,51 @@ export default function EventOrganizerPage() {
           </div>
         </section>
 
+        {/* ── EVENT LIAISON OFFICER SERVICE ── */}
+        <section id="liaison-officer" className="scroll-mt-24 px-6 py-12">
+          <div className="mx-auto max-w-5xl">
+            <Reveal><SectionHead eyebrow="Event Liaison Officer Service" title="Pendamping acara yang sigap" note="harga per orang" /></Reveal>
+            <div className="grid gap-3 sm:gap-4 md:grid-cols-3">
+              {LO_TARIFFS.map((t, i) => (
+                <Reveal key={t.id} delay={i * 60} className="h-full">
+                  <article data-lo={t.id} className={`wed-card-pop relative flex h-full flex-col rounded-3xl border-2 p-6 ${t.id === "half-day" ? "border-brand bg-brand-sky" : "border-dashed border-brand/30 bg-card"}`}>
+                    {t.id === "half-day" && (
+                      <span className="wed-sticker wed-wiggle absolute -top-3.5 right-5 rounded-full bg-brand px-3.5 py-1 text-xs font-bold text-primary-foreground">Mulai di sini</span>
+                    )}
+                    <p className="text-xs font-bold uppercase tracking-wider text-brand">{t.name}</p>
+                    <p className="mt-2 text-3xl font-extrabold text-brand-navy">{loRupiah(t.price)}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">{t.duration}</p>
+                    <ul className="mt-5 flex-1 space-y-2.5 border-t border-dashed border-border pt-5">
+                      {t.items.map((it) => (
+                        <li key={it} className="flex items-start gap-2 text-sm">
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" />{it}
+                        </li>
+                      ))}
+                    </ul>
+                    <Button asChild className="mt-6 rounded-full bg-brand-navy text-primary-foreground hover:bg-brand-navy/90">
+                      <a href={NEMPO_CONSULT_URL} target="_blank" rel="noopener noreferrer">Pilih {t.name} <ArrowRight /></a>
+                    </Button>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+            <div className="mt-8 rounded-3xl border-2 border-dashed border-border bg-card p-5 sm:p-6">
+              <p className="text-sm font-bold text-brand-navy">Harga tambahan</p>
+              <dl className="mt-3 divide-y divide-dashed divide-border">
+                {LO_ADDONS.map((a) => (
+                  <div key={a.id} className="flex items-center justify-between gap-3 py-3 text-sm">
+                    <dt className="text-brand-navy">{a.name}</dt>
+                    <dd className="font-bold text-brand">{a.startingFrom ? <span className="mr-1 text-xs font-normal text-muted-foreground">Mulai</span> : null}{loRupiah(a.price)}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{LO_EXCLUSION_NOTE}</p>
+            </div>
+          </div>
+        </section>
+
         {/* ── CARA KERJA ── */}
+
         <section className="mx-auto max-w-5xl px-6 py-12">
           <Reveal><SectionHead eyebrow="Cara Kerja" title="5 langkah, tanpa ribet" note="kamu santai, kami yang gerak" /></Reveal>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
