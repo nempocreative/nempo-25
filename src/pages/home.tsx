@@ -1158,7 +1158,7 @@ export default function Home() {
     {
       id: "riuh-rona-2026",
       name: "Riuh Rona",
-      image: undefined,
+      image: riuhRonaPosterImage,
       location: "Maru",
       date: "5 September 2026",
       badge: "Event",
