@@ -12,18 +12,18 @@ import { SosmedPortfolioGallery } from "@/components/sosmed-portfolio-gallery";
 import { Reveal, SectionHead, ServiceHero, ServiceMarquee, StickerIcon, Squiggle, Burst, hand, heroOutlineBtn, heroPrimaryBtn, serviceKitCss } from "@/components/service-page-kit";
 
 const services = [
-  { icon: Lightbulb, title: "Strategi Konten", color: "#EC4899", desc: "Ide konten, pilar, dan kalender posting yang pas dengan target audiens." },
-  { icon: ImageIcon, title: "Desain & Video", color: "#8B5CF6", desc: "Materi feed, story, dan reels dibuat langsung oleh tim Nempo Organizer." },
+  { icon: Lightbulb, title: "Strategi Konten", color: "#0194F3", desc: "Ide konten, pilar, dan kalender posting yang pas dengan target audiens." },
+  { icon: ImageIcon, title: "Desain & Video", color: "#2563EB", desc: "Materi feed, story, dan reels dibuat langsung oleh tim Nempo Organizer." },
   { icon: PenLine, title: "Caption & Hashtag", color: "#14B8A6", desc: "Hashtag utama dan tag akun yang relevan biar konten gampang ditemukan." },
-  { icon: CalendarClock, title: "Jadwal & Publikasi", color: "#F59E0B", desc: "Konten diposting rutin sesuai jadwal — kamu tinggal pantau." },
-  { icon: Megaphone, title: "Iklan Instagram", color: "#EF4444", desc: "Iklan berbayar dengan tombol CTA langsung ke halaman event kamu." },
+  { icon: CalendarClock, title: "Jadwal & Publikasi", color: "#0891B2", desc: "Konten diposting rutin sesuai jadwal — kamu tinggal pantau." },
+  { icon: Megaphone, title: "Iklan Instagram", color: "#4F46E5", desc: "Iklan berbayar dengan tombol CTA langsung ke halaman event kamu." },
   { icon: BarChart3, title: "Pantau Hasil", color: "#0EA5E9", desc: "Evaluasi performa konten untuk perbaikan di periode berikutnya." },
 ];
 
 const steps = [
-  { title: "Ngobrol dulu", desc: "Ceritakan brand atau event kamu, target, dan kanal yang mau dipakai.", icon: MessageCircle, color: "#EC4899" },
-  { title: "Pilih paket", desc: "Ambil paket bulanan — Basic, Growth, atau Professional.", icon: LayoutTemplate, color: "#8B5CF6" },
-  { title: "Kami produksi", desc: "Tim membuat materi, caption, dan menyusun jadwal posting.", icon: Video, color: "#F59E0B" },
+  { title: "Ngobrol dulu", desc: "Ceritakan brand atau event kamu, target, dan kanal yang mau dipakai.", icon: MessageCircle, color: "#0194F3" },
+  { title: "Pilih paket", desc: "Ambil paket bulanan — Basic, Growth, atau Professional.", icon: LayoutTemplate, color: "#2563EB" },
+  { title: "Kami produksi", desc: "Tim membuat materi, caption, dan menyusun jadwal posting.", icon: Video, color: "#0891B2" },
   { title: "Tayang & pantau", desc: "Konten tayang di Instagram/TikTok, hasilnya kita evaluasi bareng.", icon: Instagram, color: "#0EA5E9" },
 ];
 
