@@ -81,4 +81,5 @@
 - [x] Sosmed Management: warna "kue" dihapus — latar halaman biru muda, garis kartu biru, ikon aksen biru, tombol menu aktif biru, portofolio di panel navy dengan cover tone dingin
 - [x] Business System: desain disamakan dengan halaman layanan lain (hero biru, marquee, kartu bergaris putus-putus, panel navy) — isi & harga tetap
 - [x] Sosmed Management: tema pink kue (hero rose, latar pink muda, kartu & ikon warna kue, panel portofolio merah muda tua, cover portofolio tone hangat, pill menu pink)
-- [ ] Home: judul bagian tim disatukan jadi "Nempo Creative Team"
+- [x] Home: judul bagian tim disatukan jadi "Nempo Creative Team" (satu judul utama; nama grup jadi label kecil)
+- [x] Loading awal (splash): brand "Nempo ORGANIZER" + tagline "Wedding, event & layanan kreatif / Dari konsep sampai hari-H"; teks progress "Menyiapkan acaramu…"; PageLoader merek disamakan
