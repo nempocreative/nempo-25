@@ -1,19 +1,5 @@
 import { useEffect, useRef } from "react";
 import { MessageCircle, MoveHorizontal } from "lucide-react";
-import creator01 from "@/assets/generated_images/nempo-creator-01.jpg";
-import creator02 from "@/assets/generated_images/nempo-creator-02.jpg";
-import creator03 from "@/assets/generated_images/nempo-creator-03.jpg";
-import creator04 from "@/assets/generated_images/nempo-creator-04.jpg";
-import creator05 from "@/assets/generated_images/nempo-creator-05.jpg";
-import creator06 from "@/assets/generated_images/nempo-creator-06.jpg";
-import creator07 from "@/assets/generated_images/nempo-creator-07.jpg";
-import creator08 from "@/assets/generated_images/nempo-creator-08.jpg";
-import creator09 from "@/assets/generated_images/nempo-creator-09.jpg";
-import creator10 from "@/assets/generated_images/nempo-creator-10.jpg";
-import weddingCreator01 from "@/assets/lib/nempo-kenalan-deck/src/assets/deck/creator-wcc-ai.jpg";
-import weddingCreator02 from "@/assets/lib/nempo-kenalan-deck/src/assets/deck/creator-daily-ai.jpg";
-import weddingCreator03 from "@/assets/lib/nempo-kenalan-deck/src/assets/deck/creator-travel-ai.jpg";
-import weddingCreator04 from "@/assets/lib/nempo-kenalan-deck/src/assets/deck/creator-influencer-ai.jpg";
 import teamMember01 from "@/assets/team/team-member-01.jpg";
 import teamMember02 from "@/assets/team/team-member-02.jpg";
 import teamMember03 from "@/assets/team/team-member-03.jpg";
@@ -29,44 +15,6 @@ import teamMember12 from "@/assets/team/team-member-12.jpg";
 import { NEMPO_CONSULT_URL } from "@/lib/contact";
 import "./nempo-creator-team-card.css";
 
-const creatorImages = [
-  creator01,
-  creator02,
-  creator03,
-  creator04,
-  creator05,
-  creator06,
-  creator07,
-  creator08,
-  creator09,
-  creator10,
-];
-
-const creatorNames = [
-  "Nara",
-  "Aksa",
-  "Kirana",
-  "Raka",
-  "Sora",
-  "Aruna",
-  "Ravi",
-  "Naya",
-  "Dava",
-  "Keira",
-];
-
-const creatorFields = [
-  { label: "Creator", color: "linear-gradient(135deg, #2563eb, #1d4ed8)" },
-  { label: "Designer", color: "linear-gradient(135deg, #8b5cf6, #6d28d9)" },
-  { label: "Developer", color: "linear-gradient(135deg, #475569, #1e293b)" },
-  { label: "Photographer", color: "linear-gradient(135deg, #db2777, #be185d)" },
-  { label: "Videographer", color: "linear-gradient(135deg, #ea580c, #c2410c)" },
-  { label: "Video Editor", color: "linear-gradient(135deg, #4f46e5, #3730a3)" },
-  { label: "Social Media", color: "linear-gradient(135deg, #059669, #047857)" },
-  { label: "Creative Lead", color: "linear-gradient(135deg, #0891b2, #0e7490)" },
-  { label: "Event Creator", color: "linear-gradient(135deg, #d97706, #b45309)" },
-  { label: "Wedding Creator", color: "linear-gradient(135deg, #e11d48, #be123c)" },
-];
 
 type TeamProfile = {
   image: string;
@@ -75,39 +23,6 @@ type TeamProfile = {
   color: string;
 };
 
-const creatorProfiles: TeamProfile[] = creatorFields.map((field, index) => ({
-  image: creatorImages[index],
-  name: creatorNames[index],
-  field: field.label,
-  color: field.color,
-}));
-
-const weddingCreatorProfiles: TeamProfile[] = [
-  {
-    image: weddingCreator01,
-    name: "Maya",
-    field: "Wedding Creator",
-    color: "linear-gradient(135deg, #e11d48, #be123c)",
-  },
-  {
-    image: weddingCreator02,
-    name: "Faris",
-    field: "Videographer",
-    color: "linear-gradient(135deg, #ea580c, #c2410c)",
-  },
-  {
-    image: weddingCreator03,
-    name: "Laras",
-    field: "Photographer",
-    color: "linear-gradient(135deg, #db2777, #be185d)",
-  },
-  {
-    image: weddingCreator04,
-    name: "Evan",
-    field: "Content Creator",
-    color: "linear-gradient(135deg, #2563eb, #1d4ed8)",
-  },
-];
 
 /* Foto tim asli (wajah tetap, busana formal hasil AI). Nama sementara — ganti dengan nama asli. */
 const realTeamProfiles: TeamProfile[] = [
@@ -125,14 +40,7 @@ const realTeamProfiles: TeamProfile[] = [
   { image: teamMember12, name: "Tim Nempo", field: "Event Creator", color: "linear-gradient(135deg, #d97706, #b45309)" },
 ];
 
-/* Satu daftar tim: wedding creator disisipkan di antara profil kreatif lainnya. */
-const teamProfiles: TeamProfile[] = [
-  ...realTeamProfiles,
-  ...weddingCreatorProfiles.flatMap((weddingProfile, index) => [
-    weddingProfile,
-    ...creatorProfiles.slice(index * 3, index * 3 + 3),
-  ]),
-];
+const teamProfiles: TeamProfile[] = realTeamProfiles;
 
 /* Daftar digandakan supaya jalannya otomatis terasa tanpa putus. */
 const loopProfiles = [...teamProfiles, ...teamProfiles];
@@ -348,8 +256,8 @@ export function NempoCreatorTeamCard() {
                   <div className="nempo-creator-team__portrait">
                     <img
                       src={profile.image}
-                      alt="Potret contoh AI, bukan anggota tim Nempo"
-                      loading={isClone ? "lazy" : "eager"}
+                      alt={`Anggota tim Nempo — ${profile.field}`}
+                      loading="eager"
                       draggable={false}
                     />
                     <span
