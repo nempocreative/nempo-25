@@ -1,3 +1,0 @@
-grant insert on public.community_applications to anon, authenticated;
-grant usage on sequence public.community_applications_id_seq to anon, authenticated;
-create policy "Anyone can submit a community application" on public.community_applications for insert to anon, authenticated with check (length(full_name) between 1 and 200 and length(email) between 3 and 320 and length(whatsapp) between 5 and 30);
