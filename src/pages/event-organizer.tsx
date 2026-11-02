@@ -10,6 +10,7 @@ import {
   Check, MapPin, ArrowRight, Plus, Minus, Users,
 } from "lucide-react";
 import { eoTestimonials as testimonials } from "@/data/eo-testimonials";
+import { LO_ADDONS, LO_EXCLUSION_NOTE, LO_TARIFFS, loRupiah } from "@/data/liaison-officer";
 
 const hand = "font-[family-name:var(--font-wed-hand)]";
 
