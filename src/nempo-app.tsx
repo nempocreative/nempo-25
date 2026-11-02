@@ -10,7 +10,6 @@ import { DarkModeProvider } from "@/contexts/dark-mode-context";
 import { AuthProvider } from "@/contexts/auth-context";
 import { MatchProvider } from "@/contexts/match-context";
 import { PancoProvider } from "@/contexts/panco-context";
-import { JingleProvider } from "@/contexts/jingle-context";
 import { CityFilterProvider } from "@/contexts/city-filter-context";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { NetworkStatus } from "@/components/network-status";
@@ -324,7 +323,6 @@ function App() {
     <DarkModeProvider>
     <AuthProvider>
     <GoogleAuthProvider>
-    <JingleProvider>
      <CityFilterProvider>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
@@ -342,7 +340,6 @@ function App() {
         )}
       </QueryClientProvider>
      </CityFilterProvider>
-    </JingleProvider>
     </GoogleAuthProvider>
     </AuthProvider>
     </DarkModeProvider>
