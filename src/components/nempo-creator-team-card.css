@@ -38,6 +38,16 @@
   margin-bottom: 12px;
 }
 
+.nempo-creator-team__group-title {
+  margin: 0;
+  color: var(--creator-blue);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
 .nempo-creator-team__title {
   margin: 0;
   color: var(--creator-navy);
