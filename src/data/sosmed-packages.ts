@@ -52,3 +52,12 @@ export const SOSMED_BUNDLES: SosmedBundle[] = [
 export const bundleSaving = (b: SosmedBundle) => b.normalPrice - b.price;
 
 export const rupiah = (n: number) => `Rp${n.toLocaleString("id-ID")}`;
+
+// Promo khusus UMKM — harga dari user: Rp1.500.000 per bulan. Isi paket masih contoh, menunggu konfirmasi.
+export const SOSMED_UMKM_PROMO = {
+  name: "Promo Sosmed UMKM",
+  price: 1_500_000,
+  unit: "/bulan",
+  tagline: "Kelola Instagram & TikTok usahamu tiap bulan",
+  includes: ["Strategi & kalender konten bulanan", "Desain konten feed & story", "Caption + hashtag", "Jadwal posting rutin", "Laporan hasil bulanan"],
+};
