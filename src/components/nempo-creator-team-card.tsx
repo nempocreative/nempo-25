@@ -19,6 +19,13 @@ import teamMember02 from "@/assets/team/team-member-02.jpg";
 import teamMember03 from "@/assets/team/team-member-03.jpg";
 import teamMember04 from "@/assets/team/team-member-04.jpg";
 import teamMember05 from "@/assets/team/team-member-05.jpg";
+import teamMember06 from "@/assets/team/team-member-06.jpg";
+import teamMember07 from "@/assets/team/team-member-07.jpg";
+import teamMember08 from "@/assets/team/team-member-08.jpg";
+import teamMember09 from "@/assets/team/team-member-09.jpg";
+import teamMember10 from "@/assets/team/team-member-10.jpg";
+import teamMember11 from "@/assets/team/team-member-11.jpg";
+import teamMember12 from "@/assets/team/team-member-12.jpg";
 import { NEMPO_CONSULT_URL } from "@/lib/contact";
 import "./nempo-creator-team-card.css";
 
@@ -109,6 +116,13 @@ const realTeamProfiles: TeamProfile[] = [
   { image: teamMember03, name: "Tim Nempo", field: "Social Media", color: "linear-gradient(135deg, #059669, #047857)" },
   { image: teamMember04, name: "Tim Nempo", field: "Content Creator", color: "linear-gradient(135deg, #2563eb, #1d4ed8)" },
   { image: teamMember05, name: "Tim Nempo", field: "Designer", color: "linear-gradient(135deg, #8b5cf6, #6d28d9)" },
+  { image: teamMember06, name: "Tim Nempo", field: "Photographer", color: "linear-gradient(135deg, #db2777, #be185d)" },
+  { image: teamMember07, name: "Tim Nempo", field: "Video Editor", color: "linear-gradient(135deg, #4f46e5, #3730a3)" },
+  { image: teamMember08, name: "Tim Nempo", field: "Social Media", color: "linear-gradient(135deg, #059669, #047857)" },
+  { image: teamMember09, name: "Tim Nempo", field: "Videographer", color: "linear-gradient(135deg, #ea580c, #c2410c)" },
+  { image: teamMember10, name: "Tim Nempo", field: "Creative Lead", color: "linear-gradient(135deg, #0891b2, #0e7490)" },
+  { image: teamMember11, name: "Tim Nempo", field: "Content Creator", color: "linear-gradient(135deg, #2563eb, #1d4ed8)" },
+  { image: teamMember12, name: "Tim Nempo", field: "Event Creator", color: "linear-gradient(135deg, #d97706, #b45309)" },
 ];
 
 /* Satu daftar tim: wedding creator disisipkan di antara profil kreatif lainnya. */
