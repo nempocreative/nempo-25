@@ -7,7 +7,7 @@ import {
   Lightbulb, PenLine, CalendarClock, BarChart3, Megaphone, Image as ImageIcon,
   MessageCircle, Check, Plus, Minus, ArrowRight, Heart, Play,
 } from "lucide-react";
-import { SOSMED_BUNDLES, SOSMED_UMKM_PROMO, bundleSaving, rupiah } from "@/data/sosmed-packages";
+import { SOSMED_ADDONS, SOSMED_BUNDLES, SOSMED_MONTHLY_PACKAGES, SOSMED_UMKM_PROMO, bundleSaving, rupiah } from "@/data/sosmed-packages";
 import { SosmedPortfolioGallery } from "@/components/sosmed-portfolio-gallery";
 
 const hand = "font-[family-name:var(--font-wed-hand)]";
@@ -23,7 +23,7 @@ const services = [
 
 const steps = [
   { title: "Ngobrol dulu", desc: "Ceritakan brand atau event kamu, target, dan kanal yang mau dipakai." },
-  { title: "Pilih paket", desc: "Ambil paket hemat atau racik sendiri dari harga satuan." },
+  { title: "Pilih paket", desc: "Ambil paket bulanan — Basic, Growth, atau Professional." },
   { title: "Kami produksi", desc: "Tim membuat materi, caption, dan menyusun jadwal posting." },
   { title: "Tayang & pantau", desc: "Konten tayang di Instagram/TikTok, hasilnya kita evaluasi bareng." },
 ];
@@ -32,6 +32,8 @@ const faqs = [
   { q: "Materi kontennya dari siapa?", a: "Materi dibuat oleh tim Nempo Organizer. Untuk Instagram Feed, caption disiapkan oleh event creator supaya pesannya sesuai." },
     { q: "Iklan Instagram dihitung bagaimana?", a: "Instagram Ads dihitung per minggu (Rp300.000/minggu) dengan tombol CTA langsung ke detail event." },
   { q: "Mau sekalian tampil di website Nempo?", a: "Pilih All Promotion: semua isi Paket Social Media plus banner dan rekomendasi event di website selama 2 minggu." },
+  { q: "Boleh nambah konten satuan?", a: "Boleh. Tambahan 1 Reels Rp100.000, tambahan 1 desain Feed Rp50.000, foto produk mulai Rp300.000, video promosi bisnis mulai Rp500.000, Meta Ads management mulai Rp300.000, dan TikTok management mulai Rp500.000." },
+  { q: "Ada kunjungan produksi konten?", a: "Ada. Paket Growth dapat 1x kunjungan produksi konten (maksimal 2 jam), Paket Professional 2x. Paket Basic belum termasuk." },
 ];
 
 const marqueeItems = ["Instagram Feed", "Reels", "Story", "Highlight", "Instagram Ads", "TikTok"];
@@ -180,28 +182,74 @@ export default function SosmedManagementPage() {
 
           {/* Bundles */}
           <section id="paket" className="scroll-mt-24 px-6 py-12">
-            <SectionHead eyebrow="Paket Hemat" title="Ambil paket, lebih untung" note="ada promo khusus UMKM!" />
-            <div className="wed-card-pop relative mb-6 overflow-hidden rounded-3xl bg-sos-pink p-6 text-primary-foreground sm:p-8" style={{ boxShadow: "6px 6px 0 0 var(--color-sos-ink)" }}>
-              <span className="wed-sticker wed-wiggle absolute right-4 top-4 rotate-3 rounded-full bg-sos-ink px-3.5 py-1.5 text-[10px] font-bold tracking-wide">PROMO UMKM</span>
-              <div className="grid gap-6 sm:grid-cols-[1fr_1.2fr] sm:items-center">
-                <div>
-                  <p className={`${hand} text-2xl`}>khusus usaha lokal</p>
-                  <h3 className="text-2xl font-extrabold sm:text-3xl">{SOSMED_UMKM_PROMO.name}</h3>
-                  <p className="mt-1 text-sm text-primary-foreground/85">{SOSMED_UMKM_PROMO.tagline}</p>
-                  <p className="mt-4 text-4xl font-extrabold">{rupiah(SOSMED_UMKM_PROMO.price)}<span className="text-base font-bold text-primary-foreground/80">{SOSMED_UMKM_PROMO.unit}</span></p>
-                  <a href={NEMPO_CONSULT_URL} target="_blank" rel="noopener noreferrer" className="wed-sticker mt-5 inline-flex items-center gap-2 rounded-full bg-sos-ink px-7 py-3 text-sm font-bold">Ambil Promo UMKM <ArrowRight className="h-4 w-4" /></a>
+            <SectionHead eyebrow="Paket Bulanan" title="Pilih paket yang pas" note="bisa naik kapan aja" />
+            <div className="grid gap-5 lg:grid-cols-3">
+              {SOSMED_MONTHLY_PACKAGES.map((p) => (
+                <div
+                  key={p.id}
+                  className={`wed-card-pop relative flex h-full flex-col overflow-hidden rounded-3xl p-6 ${
+                    p.recommended ? "bg-sos-pink text-primary-foreground" : "border-2 border-dashed border-border bg-card text-sos-ink"
+                  }`}
+                  style={p.recommended ? { boxShadow: "6px 6px 0 0 var(--color-sos-ink)" } : undefined}
+                >
+                  <span
+                    className={`wed-sticker wed-wiggle absolute right-4 top-4 rotate-3 rounded-full px-3 py-1 text-[9px] font-bold tracking-wide ${
+                      p.recommended ? "bg-sos-ink text-primary-foreground" : "bg-sos-blush text-sos-pink"
+                    }`}
+                  >
+                    {p.recommended ? "PROMO UMKM" : p.tier}
+                  </span>
+                  <p className={`text-[10px] font-extrabold uppercase tracking-[0.18em] ${p.recommended ? "text-primary-foreground/80" : "text-sos-lilac"}`}>
+                    {p.tier}
+                  </p>
+                  <h3 className="mt-1 text-xl font-extrabold">{p.name}</h3>
+                  <p className="mt-3 text-3xl font-extrabold">
+                    {rupiah(p.price)}
+                    <span className={`text-sm font-bold ${p.recommended ? "text-primary-foreground/80" : "text-muted-foreground"}`}>{p.unit}</span>
+                  </p>
+                  <div className={`my-4 border-t-2 border-dashed ${p.recommended ? "border-primary-foreground/25" : "border-border"}`} />
+                  <ul className="flex-1 space-y-2">
+                    {p.includes.map((it) => (
+                      <li key={it} className="flex items-start gap-2.5 text-[13px] leading-snug">
+                        <span className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${p.recommended ? "bg-sos-ink" : "bg-sos-blush"}`}>
+                          <Check className={`h-2.5 w-2.5 ${p.recommended ? "text-primary-foreground" : "text-sos-pink"}`} strokeWidth={3} />
+                        </span>
+                        {it}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className={`mt-4 text-xs italic ${p.recommended ? "text-primary-foreground/85" : "text-muted-foreground"}`}>{p.fit}</p>
+                  <a
+                    href={NEMPO_CONSULT_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`wed-sticker mt-4 block rounded-full py-3 text-center text-sm font-bold ${
+                      p.recommended ? "bg-sos-ink text-primary-foreground" : "bg-sos-pink text-primary-foreground"
+                    }`}
+                  >
+                    Ambil {p.name}
+                  </a>
                 </div>
-                <ul className="grid gap-2.5 rounded-2xl bg-primary-foreground/15 p-5">
-                  {SOSMED_UMKM_PROMO.includes.map((it) => (
-                    <li key={it} className="flex items-start gap-2.5 text-sm">
-                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-card"><Check className="h-3 w-3 text-sos-pink" strokeWidth={3} /></span>
-                      {it}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              ))}
             </div>
-            <div className="grid gap-5 sm:grid-cols-2">
+
+            {/* Add-ons */}
+            <div className="mt-6 rounded-3xl bg-sos-blush px-5 py-6 sm:px-8 sm:py-7">
+              <h3 className="text-lg font-extrabold text-sos-ink">Layanan Tambahan</h3>
+              <p className="mt-1 text-xs text-muted-foreground">Boleh diambil sendiri atau ditambah ke paket mana pun.</p>
+              <ul className="mt-4 grid gap-x-8 sm:grid-cols-2">
+                {SOSMED_ADDONS.map((a) => (
+                  <li key={a.label} className="flex items-center justify-between gap-3 border-b border-dashed border-sos-ink/20 py-2.5 text-sm text-sos-ink">
+                    <span>{a.label}</span>
+                    <span className="shrink-0 font-extrabold text-sos-pink">{a.price}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-10">
+              <SectionHead eyebrow="Paket Promosi Event" title="Butuh dorongan instan?" note="buat event yang mau rame cepat" />
+              <div className="grid gap-5 sm:grid-cols-2">
               {SOSMED_BUNDLES.map((b) => (
                 <div
                   key={b.id}
@@ -241,6 +289,7 @@ export default function SosmedManagementPage() {
                   </a>
                 </div>
               ))}
+            </div>
             </div>
           </section>
 
