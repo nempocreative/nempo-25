@@ -201,7 +201,7 @@ export function WeddingConceptStudio() {
             <span className="text-[10px] font-semibold leading-snug text-muted-foreground sm:text-xs">
               Pelaminan
             </span>
-            <div className="flex min-w-0 items-center gap-1.5 overflow-x-auto py-0.5 sm:flex-wrap">
+            <div className="flex min-w-0 items-center gap-1.5 overflow-x-auto py-0.5 sm:flex-wrap [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {weddingDecor.map((option) => (
               <OptionChip
                 key={option.key}
@@ -220,7 +220,7 @@ export function WeddingConceptStudio() {
             <span className="text-[10px] font-semibold leading-snug text-muted-foreground sm:text-xs">
               Kebaya & Beskap
             </span>
-            <div className="flex min-w-0 items-center gap-1.5 overflow-x-auto py-0.5 sm:flex-wrap">
+            <div className="flex min-w-0 items-center gap-1.5 overflow-x-auto py-0.5 sm:flex-wrap [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {weddingKebaya.map((option) => (
               <OptionChip
                 key={option.key}
@@ -239,7 +239,7 @@ export function WeddingConceptStudio() {
             <span className="text-[10px] font-semibold leading-snug text-muted-foreground sm:text-xs">
               Khusus Gaun & Jas
             </span>
-            <div className="flex min-w-0 items-center gap-1.5 overflow-x-auto py-0.5 sm:flex-wrap">
+            <div className="flex min-w-0 items-center gap-1.5 overflow-x-auto py-0.5 sm:flex-wrap [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {weddingGowns.map((option) => (
               <OptionChip
                 key={option.key}
