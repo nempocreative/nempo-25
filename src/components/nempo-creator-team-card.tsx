@@ -1,5 +1,5 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import { MessageCircle } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { MessageCircle, MoveHorizontal } from "lucide-react";
 import creator01 from "@/assets/generated_images/nempo-creator-01.jpg";
 import creator02 from "@/assets/generated_images/nempo-creator-02.jpg";
 import creator03 from "@/assets/generated_images/nempo-creator-03.jpg";
@@ -120,78 +120,173 @@ const teamProfiles: TeamProfile[] = [
   ]),
 ];
 
+/* Daftar digandakan supaya jalannya otomatis terasa tanpa putus. */
+const loopProfiles = [...teamProfiles, ...teamProfiles];
+
+const AUTO_SPEED = 34; // piksel per detik
+const MAX_FLICK = 2600; // batas kecepatan lemparan saat lepas sentuh
+
 export function NempoCreatorTeamCard() {
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [visibleCount, setVisibleCount] = useState(4);
-  const [maxSlide, setMaxSlide] = useState(teamProfiles.length - 4);
-  const [stepWidth, setStepWidth] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const viewport = viewportRef.current;
     const track = trackRef.current;
     const firstCard = track?.firstElementChild;
     if (!viewport || !track || !(firstCard instanceof HTMLElement)) return;
 
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const total = teamProfiles.length;
+
+    let step = 0;
+    let setWidth = 0;
+    let offset = 0;
+    let velocity = 0;
+    let dragging = false;
+    let activePointer: number | null = null;
+    let startX = 0;
+    let startOffset = 0;
+    let lastTime = 0;
+    let hovering = false;
+    let focused = false;
+    let frame = 0;
+    let previous = performance.now();
+
+    const wrap = (value: number) => {
+      if (setWidth <= 0) return 0;
+      const wrapped = value % setWidth;
+      return wrapped < 0 ? wrapped + setWidth : wrapped;
+    };
+
+    const apply = () => {
+      track.style.transform = `translate3d(${-offset}px, 0, 0)`;
+    };
+
     const measure = () => {
       const cardWidth = firstCard.getBoundingClientRect().width;
       const gap = Number.parseFloat(window.getComputedStyle(track).columnGap) || 0;
-      const count = Math.max(1, Math.floor((viewport.clientWidth + gap) / (cardWidth + gap)));
-      setVisibleCount(count);
-      setMaxSlide(Math.max(0, teamProfiles.length - count));
-      setStepWidth(cardWidth + gap);
+      step = cardWidth + gap;
+      setWidth = step * total;
+      offset = wrap(offset);
+      apply();
     };
 
     measure();
     const observer = new ResizeObserver(measure);
     observer.observe(viewport);
-    return () => observer.disconnect();
-  }, []);
 
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches);
-    updatePreference();
-    mediaQuery.addEventListener("change", updatePreference);
-    return () => mediaQuery.removeEventListener("change", updatePreference);
-  }, []);
-
-  useEffect(() => {
-    setActiveSlide((current) => Math.min(current, maxSlide));
-  }, [maxSlide]);
-
-  useEffect(() => {
-    if (isPaused || prefersReducedMotion || maxSlide === 0) return;
-
-    const interval = window.setInterval(() => {
-      if (document.visibilityState === "visible") {
-        setActiveSlide((current) => (current >= maxSlide ? 0 : current + 1));
+    const tick = (now: number) => {
+      const delta = Math.min(80, now - previous) / 1000;
+      previous = now;
+      if (!dragging) {
+        if (Math.abs(velocity) > 3) {
+          offset = wrap(offset + velocity * delta);
+          velocity *= Math.pow(0.0015, delta);
+        } else {
+          velocity = 0;
+          if (
+            !hovering &&
+            !focused &&
+            !reducedMotion.matches &&
+            document.visibilityState === "visible"
+          ) {
+            offset = wrap(offset + AUTO_SPEED * delta);
+          }
+        }
+        apply();
       }
-    }, 5200);
+      frame = window.requestAnimationFrame(tick);
+    };
+    frame = window.requestAnimationFrame(tick);
 
-    return () => window.clearInterval(interval);
-  }, [activeSlide, isPaused, maxSlide, prefersReducedMotion]);
+    const onPointerDown = (event: PointerEvent) => {
+      if (event.pointerType === "mouse" && event.button !== 0) return;
+      dragging = true;
+      activePointer = event.pointerId;
+      startX = event.clientX;
+      startOffset = offset;
+      lastTime = event.timeStamp;
+      velocity = 0;
+      viewport.classList.add("is-dragging");
+      try {
+        viewport.setPointerCapture(event.pointerId);
+      } catch {
+        /* pointer capture tidak selalu tersedia */
+      }
+    };
+
+    const onPointerMove = (event: PointerEvent) => {
+      if (!dragging || event.pointerId !== activePointer) return;
+      const before = offset;
+      const delta = Math.max(8, event.timeStamp - lastTime) / 1000;
+      offset = wrap(startOffset - (event.clientX - startX));
+      let shift = offset - before;
+      if (shift > setWidth / 2) shift -= setWidth;
+      if (shift < -setWidth / 2) shift += setWidth;
+      velocity = Math.max(-MAX_FLICK, Math.min(MAX_FLICK, shift / delta));
+      lastTime = event.timeStamp;
+      apply();
+    };
+
+    const endDrag = (event: PointerEvent) => {
+      if (!dragging || event.pointerId !== activePointer) return;
+      dragging = false;
+      activePointer = null;
+      viewport.classList.remove("is-dragging");
+      if (event.type === "pointercancel") velocity = 0;
+    };
+
+    const onPointerEnter = (event: PointerEvent) => {
+      if (event.pointerType === "mouse") hovering = true;
+    };
+    const onPointerLeave = (event: PointerEvent) => {
+      if (event.pointerType === "mouse") hovering = false;
+    };
+    const onFocusIn = () => {
+      focused = true;
+    };
+    const onFocusOut = (event: FocusEvent) => {
+      const next = event.relatedTarget;
+      if (!(next instanceof Node) || !viewport.contains(next)) focused = false;
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      event.preventDefault();
+      offset = wrap(offset + (event.key === "ArrowRight" ? step : -step));
+      apply();
+    };
+
+    viewport.addEventListener("pointerdown", onPointerDown);
+    viewport.addEventListener("pointermove", onPointerMove);
+    viewport.addEventListener("pointerup", endDrag);
+    viewport.addEventListener("pointercancel", endDrag);
+    viewport.addEventListener("pointerenter", onPointerEnter);
+    viewport.addEventListener("pointerleave", onPointerLeave);
+    viewport.addEventListener("focusin", onFocusIn);
+    viewport.addEventListener("focusout", onFocusOut);
+    viewport.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer.disconnect();
+      viewport.removeEventListener("pointerdown", onPointerDown);
+      viewport.removeEventListener("pointermove", onPointerMove);
+      viewport.removeEventListener("pointerup", endDrag);
+      viewport.removeEventListener("pointercancel", endDrag);
+      viewport.removeEventListener("pointerenter", onPointerEnter);
+      viewport.removeEventListener("pointerleave", onPointerLeave);
+      viewport.removeEventListener("focusin", onFocusIn);
+      viewport.removeEventListener("focusout", onFocusOut);
+      viewport.removeEventListener("keydown", onKeyDown);
+    };
+  }, []);
 
   return (
     <section
       id="creator-team"
       aria-label="Nempo Creative Team"
       className="nempo-creator-team"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onFocusCapture={() => setIsPaused(true)}
-      onBlurCapture={(event) => {
-        const nextTarget = event.relatedTarget;
-        if (!(nextTarget instanceof Node) || !event.currentTarget.contains(nextTarget)) {
-          setIsPaused(false);
-        }
-      }}
-      onTouchStart={() => setIsPaused(true)}
-      onTouchEnd={() => setIsPaused(false)}
-      onTouchCancel={() => setIsPaused(false)}
     >
       <header className="nempo-creator-team__header">
         <div className="nempo-creator-team__intro">
@@ -220,31 +315,27 @@ export function NempoCreatorTeamCard() {
         aria-label="Nempo Creative Team"
         aria-roledescription="carousel"
       >
-        <div className="nempo-creator-team__viewport" ref={viewportRef}>
-          <div
-            className="nempo-creator-team__track"
-            ref={trackRef}
-            style={{
-              transform: `translate3d(-${activeSlide * stepWidth}px, 0, 0)`,
-              transition: prefersReducedMotion ? "none" : undefined,
-            }}
-          >
-            {teamProfiles.map((profile, index) => {
-              const isVisible = index >= activeSlide && index < activeSlide + visibleCount;
+        <div
+          className="nempo-creator-team__viewport"
+          ref={viewportRef}
+          role="group"
+          tabIndex={0}
+          aria-label="Daftar tim Nempo. Geser ke kiri atau kanan, atau tekan tombol panah."
+        >
+          <div className="nempo-creator-team__track" ref={trackRef}>
+            {loopProfiles.map((profile, index) => {
+              const isClone = index >= teamProfiles.length;
               return (
                 <article
                   className="nempo-creator-team__card"
                   key={`${profile.name}-${index}`}
-                  role="group"
-                  aria-roledescription="slide"
-                  aria-label={`${profile.name}, ${profile.field}, profil contoh AI ${index + 1} dari ${teamProfiles.length}`}
-                  aria-hidden={!isVisible}
+                  aria-hidden={isClone}
                 >
                   <div className="nempo-creator-team__portrait">
                     <img
                       src={profile.image}
                       alt="Potret contoh AI, bukan anggota tim Nempo"
-                      loading={index < visibleCount ? "eager" : "lazy"}
+                      loading={isClone ? "lazy" : "eager"}
                       draggable={false}
                     />
                     <span
@@ -260,6 +351,11 @@ export function NempoCreatorTeamCard() {
             })}
           </div>
         </div>
+
+        <span className="nempo-creator-team__hint" aria-hidden="true">
+          <MoveHorizontal aria-hidden="true" />
+          <span>Geser</span>
+        </span>
       </div>
     </section>
   );
