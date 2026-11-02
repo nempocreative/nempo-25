@@ -70,3 +70,4 @@
 - [ ] Bilah ikon bawah mobile diganti sesuai menu terbaru (user: "nanti aja")
 - [x] Studio konsep wedding: bilah geser (scrollbar) di baris Pelaminan / Kebaya & Beskap / Khusus Gaun & Jas disembunyikan di mobile, tetap bisa digeser
 - [x] Studio konsep wedding (mobile): baris Pelaminan / Kebaya & Beskap / Khusus Gaun & Jas jadi kartu 2 kolom, semua pilihan terlihat, ada centang di pilihan aktif
+- [x] Sosmed Management: 3 paket bulanan detail (Basic Rp750rb, Growth Rp1,5jt = Promo UMKM, Professional Rp2,5jt) + daftar Layanan Tambahan
