@@ -357,7 +357,7 @@ export default function EventOrganizerPage() {
             {steps.map((s, i) => (
               <Reveal key={s.title} delay={i * 60} className="h-full">
                 <div className="wed-card-pop flex h-full gap-4 rounded-3xl border-2 border-dashed border-border bg-card p-4 hover:border-brand/40 lg:flex-col lg:items-center lg:text-center">
-                  <StickerIcon icon={s.icon} color={s.color} size="sm" />
+                  <StickerIcon icon={s.icon} color={s.color} size="sm" className="self-start lg:self-center" />
                   <div>
                     <p className="text-[11px] font-extrabold text-brand">LANGKAH {String(i + 1).padStart(2, "0")}</p>
                     <h3 className="mt-0.5 text-sm font-bold text-brand-navy">{s.title}</h3>
