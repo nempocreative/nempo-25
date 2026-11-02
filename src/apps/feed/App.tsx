@@ -1,4 +1,5 @@
 import gscLogoAsset from '@/assets/good-story-cafe-logo.jpg.asset.json';
+import slide32VideoAsset from '@/assets/nempo-feed-slide-32.mp4.asset.json';
 import {
   FaFileExcel,
   FaFileWord,
