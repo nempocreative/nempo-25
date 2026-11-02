@@ -14,6 +14,11 @@ import weddingCreator01 from "@/assets/lib/nempo-kenalan-deck/src/assets/deck/cr
 import weddingCreator02 from "@/assets/lib/nempo-kenalan-deck/src/assets/deck/creator-daily-ai.jpg";
 import weddingCreator03 from "@/assets/lib/nempo-kenalan-deck/src/assets/deck/creator-travel-ai.jpg";
 import weddingCreator04 from "@/assets/lib/nempo-kenalan-deck/src/assets/deck/creator-influencer-ai.jpg";
+import teamMember01 from "@/assets/team/team-member-01.jpg";
+import teamMember02 from "@/assets/team/team-member-02.jpg";
+import teamMember03 from "@/assets/team/team-member-03.jpg";
+import teamMember04 from "@/assets/team/team-member-04.jpg";
+import teamMember05 from "@/assets/team/team-member-05.jpg";
 import { NEMPO_CONSULT_URL } from "@/lib/contact";
 import "./nempo-creator-team-card.css";
 
@@ -97,11 +102,23 @@ const weddingCreatorProfiles: TeamProfile[] = [
   },
 ];
 
+/* Foto tim asli (wajah tetap, busana formal hasil AI). Nama sementara — ganti dengan nama asli. */
+const realTeamProfiles: TeamProfile[] = [
+  { image: teamMember01, name: "Tim Nempo", field: "Creative Lead", color: "linear-gradient(135deg, #0891b2, #0e7490)" },
+  { image: teamMember02, name: "Tim Nempo", field: "Videographer", color: "linear-gradient(135deg, #ea580c, #c2410c)" },
+  { image: teamMember03, name: "Tim Nempo", field: "Social Media", color: "linear-gradient(135deg, #059669, #047857)" },
+  { image: teamMember04, name: "Tim Nempo", field: "Content Creator", color: "linear-gradient(135deg, #2563eb, #1d4ed8)" },
+  { image: teamMember05, name: "Tim Nempo", field: "Designer", color: "linear-gradient(135deg, #8b5cf6, #6d28d9)" },
+];
+
 /* Satu daftar tim: wedding creator disisipkan di antara profil kreatif lainnya. */
-const teamProfiles: TeamProfile[] = weddingCreatorProfiles.flatMap((weddingProfile, index) => [
-  weddingProfile,
-  ...creatorProfiles.slice(index * 3, index * 3 + 3),
-]);
+const teamProfiles: TeamProfile[] = [
+  ...realTeamProfiles,
+  ...weddingCreatorProfiles.flatMap((weddingProfile, index) => [
+    weddingProfile,
+    ...creatorProfiles.slice(index * 3, index * 3 + 3),
+  ]),
+];
 
 export function NempoCreatorTeamCard() {
   const viewportRef = useRef<HTMLDivElement>(null);
