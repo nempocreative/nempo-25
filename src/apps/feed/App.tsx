@@ -1,4 +1,5 @@
 import gscLogoAsset from '@/assets/good-story-cafe-logo.jpg.asset.json';
+import slide32VideoAsset from '@/assets/nempo-feed-slide-32.mp4.asset.json';
 import {
   FaFileExcel,
   FaFileWord,
@@ -3139,6 +3140,21 @@ function App() {
                       ? 'Download PNG · 3×'
                       : 'Download PNG'}
               </button>
+            )}
+            {isNempoFeed && activeSlide === 32 && (
+              <>
+                <a
+                  href={slide32VideoAsset.url}
+                  download="Nempo-Feed-Slide-32-MusiComedy-Night.mp4"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#062f4d] px-4 py-2 text-[11px] font-black text-white shadow-[0_8px_20px_rgba(0,40,78,0.2)] transition-colors hover:bg-[#0b4d69] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffdd00] focus-visible:ring-offset-2"
+                >
+                  <Download className="h-3.5 w-3.5" aria-hidden="true" />
+                  Download video · MP4
+                </a>
+                <p className="max-w-[92vw] text-center text-[10px] font-medium text-slate-600">
+                  Video 30 detik · 1080×1440 · 30 fps, persis seperti pratinjau.
+                </p>
+              </>
             )}
             {downloadError && (
               <p className="max-w-[92vw] text-center text-[10px] font-semibold text-red-700" role="alert">
