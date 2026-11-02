@@ -65,7 +65,7 @@
 - [x] NEMPO 04: tema tanpa foto pakai animasi cartoon pengantin (bagian mempelai, cerita, dan kartu tema)
 - [x] Nempo Feed slide 32: tombol unduh video MP4 (30 detik, 1080×1440, 30 fps) hasil render persis seperti pratinjau
 - [x] Musik jingle tidak berhenti saat pindah halaman
-- [x] Menu footer mobile diisi 9 layanan terbaru (sama dengan menu utama)
+- [x] Menu di footer dihapus (desktop & mobile); daftar 9 layanan tetap ada di menu hamburger mobile
 - [x] Grid team mobile: 2 card per baris, tidak terpotong
 - [ ] Bilah ikon bawah mobile diganti sesuai menu terbaru (user: "nanti aja")
 
