@@ -66,7 +66,7 @@ export default function SosmedManagementPage() {
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
               {services.map((s, i) => (
                 <Reveal key={s.title} delay={i * 60} className="h-full">
-                  <div className="wed-card-pop flex h-full flex-col items-center rounded-3xl border-2 border-dashed border-border bg-card p-4 text-center hover:border-brand/40 sm:p-5">
+                  <div className="wed-card-pop flex h-full flex-col items-center rounded-3xl border-2 border-dashed border-brand/25 bg-card p-4 text-center hover:border-brand/40 sm:p-5">
                     <StickerIcon icon={s.icon} color={s.color} className="mb-3.5" />
                     <h3 className="text-[13px] font-bold leading-snug text-brand-navy sm:text-sm">{s.title}</h3>
                     <p className="mt-1.5 text-[11px] leading-relaxed text-muted-foreground">{s.desc}</p>
@@ -105,7 +105,7 @@ export default function SosmedManagementPage() {
                   <p className="mt-1 text-xs text-muted-foreground">{sel.unit}</p>
                 </div>
               </div>
-              <ul className="mt-6 grid gap-3 border-t border-dashed border-border pt-6 sm:grid-cols-2">
+              <ul className="mt-6 grid gap-3 border-t border-dashed border-brand/25 pt-6 sm:grid-cols-2">
                 {sel.includes.map((it) => (
                   <li key={it} className="flex items-start gap-3 text-sm">
                     <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-sky"><Check className="h-3 w-3 text-brand" strokeWidth={3} /></span>{it}
@@ -123,7 +123,7 @@ export default function SosmedManagementPage() {
               <p className="mt-1 text-xs text-muted-foreground">Boleh diambil sendiri atau ditambah ke paket mana pun.</p>
               <ul className="mt-4 grid gap-x-8 sm:grid-cols-2">
                 {SOSMED_ADDONS.map((a) => (
-                  <li key={a.label} className="flex items-center justify-between gap-3 border-b border-dashed border-border py-2.5 text-sm text-brand-navy">
+                  <li key={a.label} className="flex items-center justify-between gap-3 border-b border-dashed border-brand/25 py-2.5 text-sm text-brand-navy">
                     <span>{a.label}</span>
                     <span className="shrink-0 font-extrabold text-brand">{a.price}</span>
                   </li>
@@ -137,7 +137,7 @@ export default function SosmedManagementPage() {
             <Reveal><SectionHead eyebrow="Paket Promosi Event" title="Butuh dorongan instan?" note="buat event yang mau rame cepat" /></Reveal>
             <div className="grid gap-5 sm:grid-cols-2">
               {SOSMED_BUNDLES.map((b) => (
-                <div key={b.id} className="wed-card-pop relative overflow-hidden rounded-3xl border-2 border-dashed border-border bg-card p-6">
+                <div key={b.id} className="wed-card-pop relative overflow-hidden rounded-3xl border-2 border-dashed border-brand/25 bg-card p-6">
                   <span className="wed-sticker wed-wiggle absolute -right-1 top-5 rotate-3 rounded-full bg-brand px-3.5 py-1.5 text-[10px] font-bold tracking-wide text-primary-foreground">
                     HEMAT {rupiah(bundleSaving(b))}
                   </span>
@@ -146,7 +146,7 @@ export default function SosmedManagementPage() {
                   <p className="text-xs text-muted-foreground">{b.tagline}</p>
                   <p className="mt-4 text-xs line-through text-muted-foreground">{rupiah(b.normalPrice)}</p>
                   <p className="text-3xl font-extrabold text-brand">{rupiah(b.price)}</p>
-                  <div className="my-4 border-t-2 border-dashed border-border" />
+                  <div className="my-4 border-t-2 border-dashed border-brand/25" />
                   <ul className="space-y-2">
                     {b.includes.map((it) => (
                       <li key={it} className="flex items-start gap-2.5 text-[13px]">
@@ -171,7 +171,7 @@ export default function SosmedManagementPage() {
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {steps.map((s, i) => (
                 <Reveal key={s.title} delay={i * 60} className="h-full">
-                  <div className="wed-card-pop flex h-full gap-4 rounded-3xl border-2 border-dashed border-border bg-card p-4 hover:border-brand/40 lg:flex-col lg:items-center lg:text-center">
+                  <div className="wed-card-pop flex h-full gap-4 rounded-3xl border-2 border-dashed border-brand/25 bg-card p-4 hover:border-brand/40 lg:flex-col lg:items-center lg:text-center">
                     <StickerIcon icon={s.icon} color={s.color} size="sm" className="self-start lg:self-center" />
                     <div>
                       <p className="text-[11px] font-extrabold text-brand">LANGKAH {String(i + 1).padStart(2, "0")}</p>
@@ -217,7 +217,7 @@ export function FaqList({ faqs, open, setOpen, prefix }: { faqs: { q: string; a:
   return (
     <div className="space-y-3">
       {faqs.map((f, i) => (
-        <div key={f.q} className={`rounded-2xl border-2 transition-colors ${open === i ? "border-brand/40 bg-card" : "border-dashed border-border bg-card/60"}`}>
+        <div key={f.q} className={`rounded-2xl border-2 transition-colors ${open === i ? "border-brand/40 bg-card" : "border-dashed border-brand/25 bg-card/60"}`}>
           <Button variant="ghost" onClick={() => setOpen(open === i ? null : i)} aria-expanded={open === i} aria-controls={`${prefix}-faq-${i}`}
             className="h-auto w-full justify-between gap-3 whitespace-normal rounded-2xl px-5 py-4 text-left text-sm font-semibold text-brand-navy hover:bg-transparent">
             {f.q}
