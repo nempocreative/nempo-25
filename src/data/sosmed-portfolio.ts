@@ -37,10 +37,10 @@ export const SOSMED_PORTFOLIO_CATEGORIES: SosmedPortfolioCategory[] = [
 ];
 
 export const SOSMED_PORTFOLIO: SosmedPortfolioItem[] = [
-  { id: "beauty", name: "Social Media Beauty", category: "Beauty", tones: tones("beauty", ["Blush Pink", "Sage Botanical"]) },
-  { id: "fashion", name: "Social Media Fashion", category: "Fashion", tones: tones("fashion", ["Neutral Editorial", "Cobalt Studio"]) },
-  { id: "food", name: "Social Media Food", category: "Food", tones: tones("food", ["Warm Nusantara", "Fresh Green"]) },
-  { id: "cafe", name: "Social Media Cafe", category: "Cafe", tones: tones("cafe", ["Espresso Warm", "Sky Blue"]) },
-  { id: "event", name: "Social Media Event", category: "Event", tones: tones("event", ["Acoustic Amber", "Monochrome Stage"]) },
-  { id: "skincare", name: "Social Media Skincare", category: "Skincare", tones: tones("skincare", ["Soft Lavender", "Peach Glow"]) },
-].map((item) => ({ ...item, category: item.category as SosmedPortfolioCategory, image: item.tones[0]?.image ?? "" }));
+  { id: "beauty", name: "Social Media Beauty", category: "Beauty", cover: 1, tones: tones("beauty", ["Blush Pink", "Sage Botanical"]) },
+  { id: "fashion", name: "Social Media Fashion", category: "Fashion", cover: 1, tones: tones("fashion", ["Neutral Editorial", "Cobalt Studio"]) },
+  { id: "food", name: "Social Media Food", category: "Food", cover: 1, tones: tones("food", ["Warm Nusantara", "Fresh Green"]) },
+  { id: "cafe", name: "Social Media Cafe", category: "Cafe", cover: 1, tones: tones("cafe", ["Espresso Warm", "Sky Blue"]) },
+  { id: "event", name: "Social Media Event", category: "Event", cover: 1, tones: tones("event", ["Acoustic Amber", "Monochrome Stage"]) },
+  { id: "skincare", name: "Social Media Skincare", category: "Skincare", cover: 0, tones: tones("skincare", ["Soft Lavender", "Peach Glow"]) },
+].map((item) => ({ ...item, category: item.category as SosmedPortfolioCategory, image: item.tones[item.cover]?.image ?? item.tones[0]?.image ?? "" }));
