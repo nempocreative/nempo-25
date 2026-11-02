@@ -63,3 +63,4 @@
 - [x] NEMPO 02: sampul berbingkai di layar besar, bagian cerita, rundown dua kolom, dan navigasi baru
 - [x] NEMPO 03: undangan Peach Klasik (Premium Vintage Foto) — sampul foto, mempelai, acara, cerita, galeri+lightbox, RSVP, kado, navigasi bawah
 - [x] NEMPO 04: tema tanpa foto pakai animasi cartoon pengantin (bagian mempelai, cerita, dan kartu tema)
+- [x] Nempo Feed slide 32: tombol unduh video MP4 (30 detik, 1080×1440, 30 fps) hasil render persis seperti pratinjau
