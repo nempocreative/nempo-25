@@ -115,7 +115,7 @@ export default function SplashScreen({ onDone }: Props) {
         }}>
           <img
             src={LOGO_SRC}
-            alt="Nempo Organizer"
+            alt="Nempo Garut Organizer"
             fetchPriority="high"
             decoding="sync"
             style={{
@@ -132,14 +132,14 @@ export default function SplashScreen({ onDone }: Props) {
           <div style={{ textAlign:"center" }}>
             <div style={{
               fontFamily:"'Plus Jakarta Sans','Inter',sans-serif",
-              fontWeight:900, fontSize:38, color:"white",
+              fontWeight:900, fontSize:34, color:"white",
               letterSpacing:"-0.04em", lineHeight:1,
               textShadow:"0 2px 20px rgba(0,0,0,0.3)",
-            }}>Nempo</div>
+            }}>Nempo Garut</div>
             <div style={{
               fontFamily:"'Plus Jakarta Sans','Inter',sans-serif",
               fontWeight:800, fontSize:13, color:"rgba(255,255,255,0.75)",
-              letterSpacing:"0.35em", textTransform:"uppercase", marginTop:4,
+              letterSpacing:"0.35em", textTransform:"uppercase", marginTop:6,
               textShadow:"0 0 16px rgba(1,148,243,0.6)",
             }}>ORGANIZER</div>
           </div>
