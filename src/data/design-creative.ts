@@ -1,26 +1,43 @@
-// Design Creative — services from Kenalan Nempo ("Kreatif usaha: konten, visual, branding") and the Kerja Sama price list.
-// Design work is quoted per brief; fixed prices shown here are pulled from the other service modules so they stay in sync.
-import { INVITATION_PRICE } from "@/data/wedding-invitation";
-import { SOSMED_ITEMS } from "@/data/sosmed-packages";
-import { WEB_PROJECTS } from "@/data/web-development";
-
-export const DESIGN_SERVICES = [
-  { id: "branding", title: "Branding & Identitas Visual", desc: "Logo, warna, dan gaya visual yang sesuai karakter usaha.", items: ["Konsep identitas brand", "Logo & variasinya", "Panduan warna dan font"] },
-  { id: "konten", title: "Konten Visual Sosmed", desc: "Materi feed, story, dan reels yang konsisten dengan brand.", items: ["Desain feed & story", "Template konten", "Materi campaign"] },
-  { id: "foto-video", title: "Foto, Video & Reels", desc: "Produksi aset visual yang siap dipakai untuk promosi dan media sosial.", items: ["Foto produk & tempat", "Video promosi", "Reels pendek"] },
-  { id: "event", title: "Desain Event", desc: "Visual acara dari publikasi sampai hari-H.", items: ["Poster & publikasi", "Backdrop & dekor visual", "Tiket dan materi peserta"] },
-  { id: "merchandise", title: "Desain Merchandise", desc: "Identitas produk untuk brand, event, komunitas, atau destinasi.", items: ["Konsep & desain produk", "Apparel & souvenir", "Packaging"] },
-  { id: "campaign", title: "Materi Campaign", desc: "Arah visual kampanye agar pesan brand sampai ke audiens.", items: ["Key visual campaign", "Materi promosi cetak & digital", "Adaptasi berbagai ukuran"] },
+// Graphic design prices and package limits supplied by the user.
+export const DESIGN_PRICES = [
+  { id: "feed", name: "Desain Feed Instagram", price: 50_000, startingFrom: false },
+  { id: "story", name: "Desain Instagram Story", price: 35_000, startingFrom: false },
+  { id: "carousel", name: "Desain Carousel", price: 100_000, startingFrom: false },
+  { id: "poster", name: "Desain Poster / Flyer", price: 100_000, startingFrom: false },
+  { id: "banner", name: "Desain Banner / Spanduk", price: 150_000, startingFrom: false },
+  { id: "brochure", name: "Desain Brosur", price: 150_000, startingFrom: false },
+  { id: "menu", name: "Desain Menu Cafe / Resto", price: 150_000, startingFrom: false },
+  { id: "pricelist", name: "Desain Pricelist", price: 100_000, startingFrom: false },
+  { id: "catalog", name: "Desain Katalog Produk", price: 250_000, startingFrom: true },
+  { id: "logo", name: "Desain Logo", price: 500_000, startingFrom: true },
+  { id: "branding", name: "Branding Identity", price: 1_500_000, startingFrom: true },
+  { id: "packaging", name: "Desain Packaging", price: 350_000, startingFrom: true },
+  { id: "invitation", name: "Desain Undangan Digital", price: 150_000, startingFrom: true },
+  { id: "merchandise", name: "Desain Merchandise", price: 150_000, startingFrom: true },
+  { id: "presentation", name: "Desain Presentasi / Proposal", price: 250_000, startingFrom: true },
 ] as const;
 
-const sosmedFrom = Math.min(...SOSMED_ITEMS.map((i) => i.price));
-const company = WEB_PROJECTS.find((p) => p.id === "company")!;
+export const DESIGN_MONTHLY_PACKAGES = [
+  { id: "basic", name: "Basic", price: 500_000, designs: 10, carousels: 0, revisions: 2, formats: ["JPG", "PNG"], priority: false },
+  { id: "business", name: "Business", price: 1_000_000, designs: 20, carousels: 2, revisions: 2, formats: ["JPG", "PNG"], priority: false },
+  { id: "professional", name: "Professional", price: 1_500_000, designs: 30, carousels: 4, revisions: 2, formats: ["JPG", "PNG"], priority: true },
+] as const;
 
-/** Related services that already have a fixed price elsewhere on the site. */
-export const DESIGN_RELATED = [
-  { id: "sosmed", title: "Sosmed Management", price: sosmedFrom, prefix: "mulai", unit: "per konten", href: "/sosmed-management" },
-  { id: "invitation", title: "Wedding Invitation", price: INVITATION_PRICE, prefix: "", unit: "sekali bayar", href: "/wedding-invitation" },
-  { id: "company", title: "Company Website", price: company.price, prefix: "", unit: company.billing, href: "/web-development" },
+export const DESIGN_TERMS = [
+  { id: "printing", extraCharge: true, text: "Harga belum termasuk cetak." },
+  { id: "revisions", extraCharge: true, text: "Revisi tambahan dikenakan biaya." },
+  { id: "complex", perBrief: true, text: "Desain kompleks menyesuaikan brief." },
+  { id: "source", extraCharge: true, text: "File editable/source file dikenakan biaya tambahan." },
 ] as const;
 
 export const designRupiah = (n: number) => `Rp${n.toLocaleString("id-ID")}`;
+
+export function designConsultUrl(base: string, id: string) {
+  const monthly = DESIGN_MONTHLY_PACKAGES.find((p) => p.id === id);
+  const single = DESIGN_PRICES.find((p) => p.id === id);
+  if (!monthly && !single) return base;
+  const url = new URL(base);
+  const detail = monthly ? `paket desain ${monthly.name} (${designRupiah(monthly.price)}/bulan)` : single ? `${single.name} (${single.startingFrom ? "mulai " : ""}${designRupiah(single.price)})` : "desain";
+  url.searchParams.set("text", `Halo Nempo, saya ingin konsultasi ${detail}.`);
+  return url.toString();
+}
