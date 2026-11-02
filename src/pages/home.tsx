@@ -26,6 +26,7 @@ import kalaMudaHeroImage from "@/assets/94d218d05080a6554bc7214283cb8a88_1789408
 import digiNempoHeroImage from "@/assets/d8bb582f2f075b716c1d0d1dc01bb672_1789408801865.jpg";
 import digitalGrowthBannerImage from "@/assets/nempo-team-banner.jpg";
 import ggsBeautyOpeningImage from "@/assets/event-ggs-beauty-opening.jpg";
+import riuhRonaPosterImage from "@/assets/event-riuh-rona-poster.jpg";
 import cafePartnershipBannerImage from "@/assets/generated_images/cafe-partnership-banner.jpg";
 
 type HeroBanner = {
