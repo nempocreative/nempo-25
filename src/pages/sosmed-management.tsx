@@ -44,7 +44,7 @@ export default function SosmedManagementPage() {
 
   return (
     <Layout>
-      <div className="bg-background pb-14 text-foreground">
+      <div className="bg-brand-paper pb-14 text-foreground">
         <style>{serviceKitCss}</style>
         <ServiceHero
           kicker="feed kamu sepi?"
