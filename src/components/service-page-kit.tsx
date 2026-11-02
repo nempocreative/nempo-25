@@ -134,13 +134,14 @@ export function SectionHead({ eyebrow, title, note, tone = "brand" }: { eyebrow:
 export function ServiceHero({ kicker, title, accent, desc, chips, actions, tone = "brand" }: { kicker: string; title: string; accent: string; desc: string; chips: string[]; actions: React.ReactNode; tone?: ServiceTone }) {
   const heroBg = tone === "cake" ? "bg-cake" : "bg-brand";
   const heroSoft = tone === "cake" ? "text-cake-soft" : "text-brand-sky";
+  const heroSoft70 = tone === "cake" ? "text-cake-soft/70" : "text-brand-sky/70";
   return (
     <section className={`relative isolate overflow-hidden px-6 pb-20 pt-14 text-primary-foreground sm:pt-20 ${heroBg}`}>
       <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary-foreground/15 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-20 -left-10 h-48 w-48 rounded-full bg-primary-foreground/20 blur-3xl" />
       <Burst className="wed-float pointer-events-none absolute left-[7%] top-16 h-8 w-8 text-primary-foreground/50" />
       <Burst className="wed-float-slow pointer-events-none absolute right-[9%] top-24 h-10 w-10 text-primary-foreground/30" />
-      <Ring className={`wed-wiggle pointer-events-none absolute bottom-24 left-[15%] h-6 w-6 ${heroSoft}/70`} />
+      <Ring className={`wed-wiggle pointer-events-none absolute bottom-24 left-[15%] h-6 w-6 ${heroSoft70}`} />
       <Ring className="wed-float pointer-events-none absolute bottom-28 right-[16%] h-8 w-8 text-primary-foreground/40" />
       <div className="mx-auto max-w-5xl text-center">
         <p className={`${hand} eo-hero text-2xl sm:text-3xl ${heroSoft}`}>{kicker}</p>
