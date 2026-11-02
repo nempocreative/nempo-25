@@ -60,7 +60,7 @@ function OptionChip({
       onClick={onSelect}
       aria-pressed={active}
       className={cn(
-        "h-8 min-h-8 shrink-0 items-center gap-1.5 rounded-md border px-2.5 py-1 text-[11px] font-semibold transition-colors sm:text-xs",
+        "h-auto min-h-0 w-full items-center gap-2 whitespace-normal rounded-lg border px-2.5 py-2 text-left text-[11px] font-semibold leading-tight transition-colors sm:h-8 sm:min-h-8 sm:w-auto sm:shrink-0 sm:gap-1.5 sm:whitespace-nowrap sm:rounded-md sm:px-2.5 sm:py-1 sm:text-xs",
         active
           ? "border-primary bg-primary text-primary-foreground"
           : "border-border bg-background/70 text-foreground/80 hover:border-primary/50 hover:text-primary",
@@ -70,9 +70,15 @@ function OptionChip({
         src={option.images[tone]}
         alt=""
         loading="lazy"
-        className="h-4 w-4 shrink-0 rounded-full object-cover"
+        className="size-8 shrink-0 rounded-md object-cover sm:size-4 sm:rounded-full"
       />
-      {option.name}
+      <span className="min-w-0 flex-1">{option.name}</span>
+      <Check
+        className={cn(
+          "size-4 shrink-0 transition-opacity sm:hidden",
+          active ? "opacity-100" : "opacity-0",
+        )}
+      />
     </Button>
   );
 }
@@ -196,12 +202,12 @@ export function WeddingConceptStudio() {
           </p>
         </div>
 
-        <div className="mt-4 grid gap-2">
-          <div className="grid min-w-0 grid-cols-[84px_minmax(0,1fr)] items-center gap-2 sm:grid-cols-[112px_minmax(0,1fr)]">
-            <span className="text-[10px] font-semibold leading-snug text-muted-foreground sm:text-xs">
+        <div className="mt-4 grid gap-3 sm:gap-2">
+          <div className="grid min-w-0 gap-1.5 sm:grid-cols-[112px_minmax(0,1fr)] sm:items-center sm:gap-2">
+            <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground sm:text-xs sm:font-semibold sm:normal-case sm:tracking-normal">
               Pelaminan
             </span>
-            <div className="flex min-w-0 items-center gap-1.5 overflow-x-auto py-0.5 sm:flex-wrap [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="grid min-w-0 grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center sm:gap-1.5">
             {weddingDecor.map((option) => (
               <OptionChip
                 key={option.key}
@@ -216,11 +222,11 @@ export function WeddingConceptStudio() {
             ))}
             </div>
           </div>
-          <div className="grid min-w-0 grid-cols-[84px_minmax(0,1fr)] items-center gap-2 sm:grid-cols-[112px_minmax(0,1fr)]">
-            <span className="text-[10px] font-semibold leading-snug text-muted-foreground sm:text-xs">
+          <div className="grid min-w-0 gap-1.5 sm:grid-cols-[112px_minmax(0,1fr)] sm:items-center sm:gap-2">
+            <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground sm:text-xs sm:font-semibold sm:normal-case sm:tracking-normal">
               Kebaya & Beskap
             </span>
-            <div className="flex min-w-0 items-center gap-1.5 overflow-x-auto py-0.5 sm:flex-wrap [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="grid min-w-0 grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center sm:gap-1.5">
             {weddingKebaya.map((option) => (
               <OptionChip
                 key={option.key}
@@ -235,11 +241,11 @@ export function WeddingConceptStudio() {
             ))}
             </div>
           </div>
-          <div className="grid min-w-0 grid-cols-[84px_minmax(0,1fr)] items-center gap-2 sm:grid-cols-[112px_minmax(0,1fr)]">
-            <span className="text-[10px] font-semibold leading-snug text-muted-foreground sm:text-xs">
+          <div className="grid min-w-0 gap-1.5 sm:grid-cols-[112px_minmax(0,1fr)] sm:items-center sm:gap-2">
+            <span className="text-[10px] font-bold uppercase tracking-[0.14em] text-muted-foreground sm:text-xs sm:font-semibold sm:normal-case sm:tracking-normal">
               Khusus Gaun & Jas
             </span>
-            <div className="flex min-w-0 items-center gap-1.5 overflow-x-auto py-0.5 sm:flex-wrap [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="grid min-w-0 grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center sm:gap-1.5">
             {weddingGowns.map((option) => (
               <OptionChip
                 key={option.key}
