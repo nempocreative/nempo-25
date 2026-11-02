@@ -842,7 +842,26 @@ export function Layout({ children, hideBottomNav, minimalChrome }: { children: R
               </div>
             </div>
           </div>
+          {/* ── Menu (sama dengan menu utama) ── */}
+          <div className="border-t border-white/20 pt-6 mb-6">
+            <p className="text-white/50 text-[10px] uppercase tracking-widest font-bold mb-3 text-center md:text-left">
+              Menu
+            </p>
+            <nav aria-label="Menu footer" className="grid grid-cols-2 gap-x-3 gap-y-1 sm:grid-cols-3">
+              {mainNavItems.map((item) => (
+                <Link
+                  key={item.id}
+                  href={item.href}
+                  className="flex min-w-0 items-center gap-2 rounded-xl px-2.5 py-2 text-[11px] font-bold text-white/75 transition-colors hover:bg-white/10 hover:text-white"
+                >
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: item.color }} />
+                  <span className="truncate">{item.label}</span>
+                </Link>
+              ))}
+            </nav>
+          </div>
           {/* ── Metode Pembayaran ── */}
+
           {(() => {
             const base = import.meta.env.BASE_URL + "payment-logos/";
             const v = "?v=7";
