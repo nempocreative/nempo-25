@@ -1,0 +1,7 @@
+[
+  {"capability":"code, pages, assets","source":"github nempocreative/nempo-20","outcome":"migrate","status":"verified","next_action":"none"},
+  {"capability":"schema (19 tables)","source":"types.ts","outcome":"migrate","status":"verified","next_action":"none"},
+  {"capability":"records","source":"old Lovable Cloud database","outcome":"migrate","status":"pending","next_action":"user exports tables as CSV/JSON"},
+  {"capability":"auth users","source":"none detected in app code","outcome":"n/a","status":"verified","next_action":"none"},
+  {"capability":"community application form","source":"komunitas page","outcome":"migrate","status":"implemented","next_action":"submit test entry"}
+]
