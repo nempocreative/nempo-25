@@ -7,7 +7,7 @@ import {
   Lightbulb, PenLine, CalendarClock, BarChart3, Megaphone, Image as ImageIcon,
   MessageCircle, Check, Plus, Minus, ArrowRight, Heart, Play,
 } from "lucide-react";
-import { SOSMED_BUNDLES, SOSMED_UMKM_PROMO, bundleSaving, rupiah } from "@/data/sosmed-packages";
+import { SOSMED_ADDONS, SOSMED_BUNDLES, SOSMED_MONTHLY_PACKAGES, bundleSaving, rupiah } from "@/data/sosmed-packages";
 import { SosmedPortfolioGallery } from "@/components/sosmed-portfolio-gallery";
 
 const hand = "font-[family-name:var(--font-wed-hand)]";
@@ -23,7 +23,7 @@ const services = [
 
 const steps = [
   { title: "Ngobrol dulu", desc: "Ceritakan brand atau event kamu, target, dan kanal yang mau dipakai." },
-  { title: "Pilih paket", desc: "Ambil paket hemat atau racik sendiri dari harga satuan." },
+  { title: "Pilih paket", desc: "Ambil paket bulanan — Basic, Growth, atau Professional." },
   { title: "Kami produksi", desc: "Tim membuat materi, caption, dan menyusun jadwal posting." },
   { title: "Tayang & pantau", desc: "Konten tayang di Instagram/TikTok, hasilnya kita evaluasi bareng." },
 ];
@@ -32,6 +32,8 @@ const faqs = [
   { q: "Materi kontennya dari siapa?", a: "Materi dibuat oleh tim Nempo Organizer. Untuk Instagram Feed, caption disiapkan oleh event creator supaya pesannya sesuai." },
     { q: "Iklan Instagram dihitung bagaimana?", a: "Instagram Ads dihitung per minggu (Rp300.000/minggu) dengan tombol CTA langsung ke detail event." },
   { q: "Mau sekalian tampil di website Nempo?", a: "Pilih All Promotion: semua isi Paket Social Media plus banner dan rekomendasi event di website selama 2 minggu." },
+  { q: "Boleh nambah konten satuan?", a: "Boleh. Tambahan 1 Reels Rp100.000, tambahan 1 desain Feed Rp50.000, foto produk mulai Rp300.000, video promosi bisnis mulai Rp500.000, Meta Ads management mulai Rp300.000, dan TikTok management mulai Rp500.000." },
+  { q: "Ada kunjungan produksi konten?", a: "Ada. Paket Growth dapat 1x kunjungan produksi konten (maksimal 2 jam), Paket Professional 2x. Paket Basic belum termasuk." },
 ];
 
 const marqueeItems = ["Instagram Feed", "Reels", "Story", "Highlight", "Instagram Ads", "TikTok"];
