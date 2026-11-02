@@ -80,3 +80,4 @@
 - [x] Sosmed Management: 3 paket bulanan detail (Basic Rp750rb, Growth Rp1,5jt = Promo UMKM, Professional Rp2,5jt) + daftar Layanan Tambahan
 - [x] Sosmed Management: warna "kue" dihapus — latar halaman biru muda, garis kartu biru, ikon aksen biru, tombol menu aktif biru, portofolio di panel navy dengan cover tone dingin
 - [x] Business System: desain disamakan dengan halaman layanan lain (hero biru, marquee, kartu bergaris putus-putus, panel navy) — isi & harga tetap
+- [x] Sosmed Management: tema pink kue (hero rose, latar pink muda, kartu & ikon warna kue, panel portofolio merah muda tua, cover portofolio tone hangat, pill menu pink)

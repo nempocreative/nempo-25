@@ -117,51 +117,58 @@ export function Ring({ className = "" }: { className?: string }) {
 }
 
 
-export function SectionHead({ eyebrow, title, note }: { eyebrow: string; title: string; note?: string }) {
+export type ServiceTone = "brand" | "cake";
+
+export function SectionHead({ eyebrow, title, note, tone = "brand" }: { eyebrow: string; title: string; note?: string; tone?: ServiceTone }) {
+  const accent = tone === "cake" ? "text-cake" : "text-brand";
+  const ink = tone === "cake" ? "text-cake-deep" : "text-brand-navy";
   return (
     <div className="mb-7 text-center">
-      <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand">{eyebrow}</p>
-      <h2 className="mt-2 text-[26px] font-extrabold leading-tight text-brand-navy sm:text-4xl">{title}</h2>
-      {note && <p className={`${hand} mt-1 text-xl text-brand`}>{note}</p>}
+      <p className={`text-xs font-bold uppercase tracking-[0.2em] ${accent}`}>{eyebrow}</p>
+      <h2 className={`mt-2 text-[26px] font-extrabold leading-tight sm:text-4xl ${ink}`}>{title}</h2>
+      {note && <p className={`${hand} mt-1 text-xl ${accent}`}>{note}</p>}
     </div>
   );
 }
 
-export function ServiceHero({ kicker, title, accent, desc, chips, actions }: { kicker: string; title: string; accent: string; desc: string; chips: string[]; actions: React.ReactNode }) {
+export function ServiceHero({ kicker, title, accent, desc, chips, actions, tone = "brand" }: { kicker: string; title: string; accent: string; desc: string; chips: string[]; actions: React.ReactNode; tone?: ServiceTone }) {
+  const heroBg = tone === "cake" ? "bg-cake" : "bg-brand";
+  const heroSoft = tone === "cake" ? "text-cake-soft" : "text-brand-sky";
+  const heroSoft70 = tone === "cake" ? "text-cake-soft/70" : "text-brand-sky/70";
   return (
-    <section className="relative isolate overflow-hidden bg-brand px-6 pb-20 pt-14 text-primary-foreground sm:pt-20">
+    <section className={`relative isolate overflow-hidden px-6 pb-20 pt-14 text-primary-foreground sm:pt-20 ${heroBg}`}>
       <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary-foreground/15 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-20 -left-10 h-48 w-48 rounded-full bg-primary-foreground/20 blur-3xl" />
       <Burst className="wed-float pointer-events-none absolute left-[7%] top-16 h-8 w-8 text-primary-foreground/50" />
       <Burst className="wed-float-slow pointer-events-none absolute right-[9%] top-24 h-10 w-10 text-primary-foreground/30" />
-      <Ring className="wed-wiggle pointer-events-none absolute bottom-24 left-[15%] h-6 w-6 text-brand-sky/70" />
+      <Ring className={`wed-wiggle pointer-events-none absolute bottom-24 left-[15%] h-6 w-6 ${heroSoft70}`} />
       <Ring className="wed-float pointer-events-none absolute bottom-28 right-[16%] h-8 w-8 text-primary-foreground/40" />
       <div className="mx-auto max-w-5xl text-center">
-        <p className={`${hand} eo-hero text-2xl text-brand-sky sm:text-3xl`}>{kicker}</p>
+        <p className={`${hand} eo-hero text-2xl sm:text-3xl ${heroSoft}`}>{kicker}</p>
         <h1 className="eo-hero mt-3 text-[38px] font-extrabold leading-[1.08] tracking-tight sm:text-6xl" style={{ animationDelay: "80ms" }}>
           {title}
-          <span className="mt-1 block text-brand-sky">{accent}</span>
+          <span className={`mt-1 block ${heroSoft}`}>{accent}</span>
         </h1>
         <p className="eo-hero mx-auto mt-6 max-w-xl text-sm leading-relaxed text-primary-foreground/85 sm:text-base" style={{ animationDelay: "160ms" }}>{desc}</p>
         <div className="eo-hero mt-8 flex flex-wrap items-center justify-center gap-3" style={{ animationDelay: "240ms" }}>{actions}</div>
         <div className="eo-hero mt-8 flex flex-wrap items-center justify-center gap-2" style={{ animationDelay: "320ms" }}>
           {chips.map((c, i) => (
             <span key={c} className="wed-sticker inline-flex items-center gap-1.5 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-4 py-1.5 text-xs font-semibold backdrop-blur">
-              <Burst className={`h-3 w-3 ${i === 1 ? "text-brand-sky" : "text-primary-foreground/60"}`} />{c}
+              <Burst className={`h-3 w-3 ${i === 1 ? heroSoft : "text-primary-foreground/60"}`} />{c}
             </span>
           ))}
         </div>
       </div>
-      <svg className="absolute bottom-0 left-0 w-full text-brand-sky" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden>
+      <svg className={`absolute bottom-0 left-0 w-full ${heroSoft}`} viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden>
         <path d="M0,32 C240,60 480,4 720,28 C960,52 1200,8 1440,32 L1440,60 L0,60 Z" fill="currentColor" />
       </svg>
     </section>
   );
 }
 
-export function ServiceMarquee({ items }: { items: string[] }) {
+export function ServiceMarquee({ items, tone = "brand" }: { items: string[]; tone?: ServiceTone }) {
   return (
-    <div className="overflow-hidden bg-brand-sky py-3 text-brand" aria-hidden>
+    <div className={`overflow-hidden py-3 ${tone === "cake" ? "bg-cake-soft text-cake" : "bg-brand-sky text-brand"}`} aria-hidden>
       <div className="wed-marquee flex w-max items-center gap-8">
         {[...items, ...items].map((item, i) => (
           <span key={i} className="flex items-center gap-8 text-sm font-semibold tracking-wide">{item}<Burst className="h-3.5 w-3.5" /></span>
@@ -172,4 +179,5 @@ export function ServiceMarquee({ items }: { items: string[] }) {
 }
 
 export const heroPrimaryBtn = "wed-sticker eo-btn-shine rounded-full bg-card px-7 text-brand hover:bg-card/90";
+export const cakeHeroPrimaryBtn = "wed-sticker eo-btn-shine rounded-full bg-card px-7 text-cake hover:bg-card/90";
 export const heroOutlineBtn = "rounded-full border-primary-foreground/40 bg-primary-foreground/10 px-7 text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary-foreground";
