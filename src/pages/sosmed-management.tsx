@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { SOSMED_ADDONS, SOSMED_BUNDLES, SOSMED_MONTHLY_PACKAGES, SOSMED_UMKM_PROMO, bundleSaving, rupiah } from "@/data/sosmed-packages";
 import { SosmedPortfolioGallery } from "@/components/sosmed-portfolio-gallery";
-import { Reveal, SectionHead, ServiceHero, ServiceMarquee, StickerIcon, Squiggle, Burst, hand, heroOutlineBtn, heroPrimaryBtn, serviceKitCss } from "@/components/service-page-kit";
+import { Reveal, SectionHead, ServiceHero, ServiceMarquee, StickerIcon, Squiggle, Burst, hand, heroOutlineBtn, cakeHeroPrimaryBtn, serviceKitCss } from "@/components/service-page-kit";
 
 const services = [
   { icon: Lightbulb, title: "Strategi Konten", color: "#0194F3", desc: "Ide konten, pilar, dan kalender posting yang pas dengan target audiens." },
@@ -47,22 +47,23 @@ export default function SosmedManagementPage() {
       <div className="bg-cake-paper pb-28 text-foreground">
         <style>{serviceKitCss}</style>
         <ServiceHero
+          tone="cake"
           kicker="feed kamu sepi?"
           title="Nempo"
           accent="Sosmed Management"
           desc="Konten, caption, jadwal posting, sampai iklan Instagram & TikTok — biar sosmed rame, kamu tinggal fokus jualan."
           chips={[...SOSMED_MONTHLY_PACKAGES.map((p) => p.name), "Promo UMKM"]}
           actions={<>
-            <Button asChild size="lg" className={heroPrimaryBtn}><a href="#paket">Lihat Paket <ArrowRight /></a></Button>
+            <Button asChild size="lg" className={cakeHeroPrimaryBtn}><a href="#paket">Lihat Paket <ArrowRight /></a></Button>
             <Button asChild size="lg" variant="outline" className={heroOutlineBtn}><a href={NEMPO_CONSULT_URL} target="_blank" rel="noopener noreferrer">Konsultasi Dulu</a></Button>
           </>}
         />
-        <ServiceMarquee items={marqueeItems} />
+        <ServiceMarquee items={marqueeItems} tone="cake" />
 
         <div className="mx-auto max-w-5xl">
           {/* Services */}
           <section className="px-6 py-12">
-            <Reveal><SectionHead eyebrow="Yang kami kerjakan" title="Dari ide sampai tayang" note="kamu fokus jualan aja" /></Reveal>
+            <Reveal><SectionHead tone="cake" eyebrow="Yang kami kerjakan" title="Dari ide sampai tayang" note="kamu fokus jualan aja" /></Reveal>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
               {services.map((s, i) => (
                 <Reveal key={s.title} delay={i * 60} className="h-full">
@@ -81,7 +82,7 @@ export default function SosmedManagementPage() {
 
           {/* Monthly packages */}
           <section id="paket" className="scroll-mt-24 px-6 py-12">
-            <Reveal><SectionHead eyebrow="Paket Bulanan" title="Pilih paket yang pas" note="bisa naik kapan aja" /></Reveal>
+            <Reveal><SectionHead tone="cake" eyebrow="Paket Bulanan" title="Pilih paket yang pas" note="bisa naik kapan aja" /></Reveal>
             <div className="grid grid-cols-3 gap-2 sm:gap-3" role="group" aria-label="Pilihan paket sosmed">
               {SOSMED_MONTHLY_PACKAGES.map((p, i) => (
                 <Button key={p.id} variant="outline" aria-pressed={pkg === i} onClick={() => setPkg(i)}
@@ -134,7 +135,7 @@ export default function SosmedManagementPage() {
 
           {/* Bundles */}
           <section className="px-6 py-12">
-            <Reveal><SectionHead eyebrow="Paket Promosi Event" title="Butuh dorongan instan?" note="buat event yang mau rame cepat" /></Reveal>
+            <Reveal><SectionHead tone="cake" eyebrow="Paket Promosi Event" title="Butuh dorongan instan?" note="buat event yang mau rame cepat" /></Reveal>
             <div className="grid gap-5 sm:grid-cols-2">
               {SOSMED_BUNDLES.map((b) => (
                 <div key={b.id} className="wed-card-pop relative overflow-hidden rounded-3xl border-2 border-dashed border-cake/25 bg-card p-6">
@@ -167,7 +168,7 @@ export default function SosmedManagementPage() {
 
           {/* Steps */}
           <section className="px-6 py-12">
-            <Reveal><SectionHead eyebrow="Cara Kerja" title="4 langkah, langsung jalan" note="gak pake ribet" /></Reveal>
+            <Reveal><SectionHead tone="cake" eyebrow="Cara Kerja" title="4 langkah, langsung jalan" note="gak pake ribet" /></Reveal>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {steps.map((s, i) => (
                 <Reveal key={s.title} delay={i * 60} className="h-full">
@@ -186,7 +187,7 @@ export default function SosmedManagementPage() {
 
           {/* FAQ */}
           <section className="px-6 py-12">
-            <SectionHead eyebrow="Tanya Jawab" title="Pertanyaan umum" note="biar gak penasaran" />
+            <SectionHead tone="cake" eyebrow="Tanya Jawab" title="Pertanyaan umum" note="biar gak penasaran" />
             <FaqList faqs={faqs} open={open} setOpen={setOpen} prefix="sosmed" />
           </section>
 
@@ -200,7 +201,7 @@ export default function SosmedManagementPage() {
               <h2 className="relative mt-1 text-3xl font-extrabold leading-snug">Siap bikin sosmed kamu hidup?</h2>
               <p className="relative mx-auto mt-2 max-w-sm text-sm text-primary-foreground/80">Promo UMKM {rupiah(SOSMED_UMKM_PROMO.price)}{SOSMED_UMKM_PROMO.unit} — konsultasi gratis lewat WhatsApp.</p>
               <div className="relative mt-6 flex flex-wrap justify-center gap-3">
-                <Button asChild size="lg" className={heroPrimaryBtn}><a href={NEMPO_CONSULT_URL} target="_blank" rel="noopener noreferrer">Chat via WhatsApp <ArrowRight /></a></Button>
+                <Button asChild size="lg" className={cakeHeroPrimaryBtn}><a href={NEMPO_CONSULT_URL} target="_blank" rel="noopener noreferrer">Chat via WhatsApp <ArrowRight /></a></Button>
                 <Button asChild size="lg" variant="outline" className={heroOutlineBtn}>
                   <Link href="/price-list#paket-promosi">Daftar Harga Lengkap</Link>
                 </Button>
