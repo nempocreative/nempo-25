@@ -1,4 +1,6 @@
 # Roadmap
+- [ ] Event Liaison Officer Service: 3 tarifs per person, duration, inclusions, additional fees and transport/meals/accommodation exclusions on EO page; verify.
+- [ ] Wedding Content Creator: pasang 3 paket (Intimate, Essential, Exclusive), add-on, dan catatan transport sesuai rincian pengguna; periksa harga dan tampilan.
 - [x] Rapikan halaman Web Development selaras EO/WO; tampilkan 5 paket website dan biaya tambahan sesuai rincian terbaru pengguna; semua pilihan, konsultasi paket, FAQ, serta tampilan HP/komputer diperiksa, 27 tes lulus.
 - [x] Slide 32: keterangan 15 kartu foto berupa ajakan event (ayo joged bareng, seru-seruan bareng, nyanyi bareng, dll); semua terbaca penuh tanpa terpotong.
 - [x] Slide 32: 15 foto asli Good Story Cafe (SJL01871/83/86/87/93/96/98, 01945/55/59/65/70, 01970_2, 01974/80) dalam tumpukan kartu, 2 detik per foto; foto AI lama dihapus.
@@ -6,7 +8,7 @@
 
 
 - [x] Tambah slide 32 memakai poster slide 31; pilihan kedua slide dan tampilan ponsel diperiksa, semua gambar tampil.
-- [ ] Rapikan Design Creative: tampilan editorial natural tanpa oranye, layanan dan harga tetap sama; periksa tampilan dan tombol.
+- [ ] Rapikan Design Creative selaras halaman layanan terbaru, tanpa oranye; tampilkan 15 harga desain, 3 paket bulanan, dan ketentuan terbaru pengguna; periksa harga dan tombol di HP/komputer.
 - [x] Perbagus contoh sosmed: 6 kategori, 12 tone, 108 desain AI; galeri, ganti tone, perbesar desain dan tampilan ponsel diperiksa.
 - [x] Rapikan sampul pratinjau 16 tema: memakai sampul undangan asli, proporsi tetap tanpa potongan, kartu sejajar; diperiksa pada lebar 320, 390, 768, 950, 1280, dan 1920, filter dan pembukaan undangan berhasil, 17 tes tema lolos.
 - [x] NEMPO 16: Merah Marun Tanpa Foto dengan cartoon beranimasi, acara, cerita, RSVP, kado dan kalender pratinjau; animasi, kalender, ucapan, kartu tema dan tampilan ponsel/komputer diperiksa, 76 tes lolos.

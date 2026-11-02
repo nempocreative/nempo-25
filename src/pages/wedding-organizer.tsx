@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { WeddingConceptStudio } from "@/components/wedding-concept-studio";
 import { Heart, Check, ArrowRight, Users, Music, Plus, Minus, Flower2, Gem, PartyPopper, HeartHandshake } from "lucide-react";
 import { NEMPO_CONSULT_URL } from "@/lib/contact";
+import { WCC_PACKAGES, WCC_ADDONS, WCC_TRANSPORT_NOTE } from "@/data/wedding-content-creator";
 import { weddingPackages, weddingAdatOptions, weddingTotal, weddingRupiah, weddingVendorNote, weddingAdatNote } from "@/data/wedding-packages";
 
 const serif = "font-[family-name:var(--font-wed-serif)]";
@@ -181,6 +182,41 @@ export default function WeddingOrganizerPage() {
               ))}
             </div>
             <p className="mt-6 text-xs leading-relaxed text-wed-ink/70">{weddingAdatNote}</p>
+          </div>
+        </section>
+
+        {/* ── WEDDING CONTENT CREATOR ── */}
+        <section id="wcc" className="relative scroll-mt-24 bg-card px-6 py-12">
+          <div className="mx-auto max-w-5xl">
+            <Head eyebrow="Wedding Content Creator" title="Momen pernikahan jadi konten" note="cepat, candid, siap dibagikan" />
+            <div className="grid gap-5 md:grid-cols-3">
+              {WCC_PACKAGES.map(p => (
+                <article key={p.id} data-wcc={p.id} className={`wed-card-pop relative flex h-full flex-col rounded-3xl border-2 p-6 ${p.id === "intimate" ? "border-wed-rose bg-wed-blush" : "border-dashed border-wed-gold/50 bg-card"}`}>
+                  {p.id === "intimate" && <span className="wed-sticker absolute -top-3.5 right-5 rounded-full bg-wed-rose px-3.5 py-1 text-xs font-bold text-primary-foreground">Mulai di sini</span>}
+                  <p className="text-xs font-bold uppercase tracking-wider text-wed-rose">{p.name}</p>
+                  <p className={`${serif} mt-2 text-3xl font-bold`}>{weddingRupiah(p.price)}</p>
+                  <p className="mt-1 text-sm text-wed-ink/70">{p.scope}</p>
+                  <ul className="mt-5 flex-1 space-y-2.5 border-t border-dashed border-wed-ink/15 pt-5">
+                    {p.items.map(it => <li key={it} className="flex items-start gap-2 text-sm"><Check className="mt-0.5 h-4 w-4 shrink-0 text-wed-rose" />{it}</li>)}
+                  </ul>
+                  <Button asChild className="mt-6 rounded-full bg-wed-ink text-primary-foreground hover:bg-wed-ink/90">
+                    <a href={NEMPO_CONSULT_URL} target="_blank" rel="noopener noreferrer">Pilih {p.name} <ArrowRight /></a>
+                  </Button>
+                </article>
+              ))}
+            </div>
+            <div className="mt-8 rounded-3xl border-2 border-dashed border-wed-ink/15 p-5 sm:p-6">
+              <p className="text-sm font-bold">Add-on</p>
+              <dl className="mt-3 divide-y divide-dashed divide-wed-ink/15">
+                {WCC_ADDONS.map(a => (
+                  <div key={a.id} className="flex items-center justify-between gap-3 py-3 text-sm">
+                    <dt>{a.name}</dt>
+                    <dd className="font-bold text-wed-rose">{a.startingFrom ? <span className="mr-1 text-xs font-normal text-wed-ink/60">Mulai</span> : null}{weddingRupiah(a.price)}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-3 text-xs text-wed-ink/70">{WCC_TRANSPORT_NOTE}</p>
+            </div>
           </div>
         </section>
 

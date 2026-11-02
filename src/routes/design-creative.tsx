@@ -5,9 +5,9 @@ export const Route = createFileRoute("/design-creative")({
   head: () => ({
     meta: [
       { title: "Design Creative Nempo — Branding, Konten & Visual Garut" },
-      { name: "description", content: "Jasa desain kreatif Nempo: branding & logo, konten visual sosmed, foto & video, desain event, merchandise, dan materi campaign. Konsultasi gratis." },
+      { name: "description", content: "Pricelist desain Nempo: feed Rp50.000, story Rp35.000, logo mulai Rp500.000, branding mulai Rp1.500.000, dan paket desain bulanan mulai Rp500.000." },
       { property: "og:title", content: "Design Creative Nempo — Branding, Konten & Visual" },
-      { property: "og:description", content: "Visual kreatif yang selaras dengan karakter dan tujuan brand — dari logo sampai merchandise." },
+      { property: "og:description", content: "Desain feed, poster, menu, logo, packaging, hingga paket bulanan dengan harga jelas." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
