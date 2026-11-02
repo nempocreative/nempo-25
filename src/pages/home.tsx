@@ -1164,8 +1164,8 @@ export default function Home() {
     },
     {
       id: "opening-ggs-2026",
-      name: "Opening GGS",
-      image: undefined,
+      name: "Grand Opening GGS Beauty",
+      image: ggsBeautyOpeningImage,
       location: "GGS Beauty",
       date: "18 Oktober 2026",
       badge: "Opening",
