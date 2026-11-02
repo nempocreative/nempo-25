@@ -176,3 +176,27 @@ export const NavProfileIcon = ({ className, style, ...props }: GlyphProps) => (
     <path d="M5 20c.6-3.6 2.9-5.5 7-5.5s6.4 1.9 7 5.5" fill="currentColor" opacity=".13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
   </svg>
 );
+
+export const NavRecruitmentIcon = ({ className, style, ...props }: GlyphProps) => (
+  <svg {...glyphProps(className, style)} {...props}>
+    <circle cx="10" cy="8" r="3.3" fill="currentColor" opacity=".14" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M4 20c.5-3.4 2.6-5.2 6-5.2s5.5 1.8 6 5.2" fill="currentColor" opacity=".13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    <path d="M18.2 8.2v5M15.7 10.7h5" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" />
+  </svg>
+);
+
+export const NavPortfolioIcon = ({ className, style, ...props }: GlyphProps) => (
+  <svg {...glyphProps(className, style)} {...props}>
+    <path d="M4 8.6A2 2 0 0 1 6 6.6h3.4l1.6 2.1H18a2 2 0 0 1 2 2v6.7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8.6Z" fill="currentColor" opacity=".13" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+    <path d="M4 11.6h16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity=".55" />
+    <path d="M9.6 15.4h4.8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity=".55" />
+  </svg>
+);
+
+export const NavContactIcon = ({ className, style, ...props }: GlyphProps) => (
+  <svg {...glyphProps(className, style)} {...props}>
+    <path d="M4.4 6.6A2.2 2.2 0 0 1 6.6 4.4h10.8a2.2 2.2 0 0 1 2.2 2.2v7.4a2.2 2.2 0 0 1-2.2 2.2h-6L7 20.2v-3.9a2.2 2.2 0 0 1-2.6-2.1V6.6Z" fill="currentColor" opacity=".13" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+    <path d="M8.6 8.8h6.8M8.6 11.8h4.4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity=".6" />
+  </svg>
+);
+
