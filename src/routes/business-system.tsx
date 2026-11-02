@@ -4,10 +4,10 @@ import { NempoShell } from "@/components/nempo-shell";
 export const Route = createFileRoute("/business-system")({
   head: () => ({
     meta: [
-      { title: "Business System Nempo — Kasir, Stok, CRM & Super App" },
-      { name: "description", content: "Sistem bisnis berbasis web dari Nempo: kasir, QR menu, booking, antrian, CRM, loyalty, stok, gudang, HPP, invoice, dan HR. Mulai Rp49.000/bulan atau Super App Rp699.000/bulan." },
-      { property: "og:title", content: "Business System Nempo — Semua Modul Usaha Terhubung" },
-      { property: "og:description", content: "Pilih modul satuan atau satukan hingga 10 modul dalam Business Super App." },
+      { title: "Business System & Digital Solutions Nempo — Kasir, Stok, CRM, HR & Sistem Industri" },
+      { name: "description", content: "Katalog sistem bisnis Nempo: QR Menu Rp750.000, POS Rp2.500.000, antrian, reservasi, membership, voucher, ticketing, CMS, finance, inventory, HR & payroll, sampai sistem khusus salon, cafe, hotel, dan sekolah." },
+      { property: "og:title", content: "Business System & Digital Solutions Nempo" },
+      { property: "og:description", content: "Sistem operasional, manajemen, dan solusi per industri — harga mulai jelas, fitur tercantum, konsultasi langsung via WhatsApp." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
